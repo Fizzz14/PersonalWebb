@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { User, MapPin, Briefcase, GraduationCap } from 'lucide-react';
-import profileImg from '../assets/profile.jpg';
+import profileImg from '../assets/hapis1.jpeg';
 
 const About = () => {
   const ref = useRef(null);
