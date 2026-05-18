@@ -67,8 +67,19 @@ const Contact = () => {
             </div>
 
             <div className="flex gap-4">
-              {[GithubIcon, LinkedinIcon, InstagramIcon].map((Icon, idx) => (
-                <a key={idx} href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 hover:bg-white hover:text-black hover:-translate-y-1 transition-all duration-300">
+              {[
+                { Icon: GithubIcon, url: 'https://github.com/Fizzz14', label: 'GitHub' },
+                { Icon: LinkedinIcon, url: 'https://www.linkedin.com/in/muhammad-hafizh-rahmat/', label: 'LinkedIn' },
+                { Icon: InstagramIcon, url: 'https://www.instagram.com/_hafizzhh/', label: 'Instagram' }
+              ].map(({ Icon, url, label }, idx) => (
+                <a 
+                  key={idx} 
+                  href={url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label={label}
+                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 hover:bg-white hover:text-black hover:-translate-y-1 transition-all duration-300"
+                >
                   <Icon />
                 </a>
               ))}
