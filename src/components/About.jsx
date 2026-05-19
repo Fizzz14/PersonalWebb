@@ -43,7 +43,7 @@ const About = () => {
                 Saya adalah pelajar berusia 17 tahun dari Ciderum, Bogor. Saat ini menempuh pendidikan di <span className="text-white">SMK Wikrama Bogor</span>, tempat saya mengembangkan passion di dunia software dan game development.
               </p>
               <p>
-                Meskipun masih berstatus siswa, saya telah mengumpulkan pengalaman berharga melalui internship di industri perhotelan dan software development, yang membentuk pemahaman saya tentang implementasi teknologi di dunia nyata.
+                Meskipun masih berstatus siswa, saya telah mengumpulkan pengalaman berharga melalui internship di industri dan software development, yang membentuk pemahaman saya tentang implementasi teknologi di dunia nyata.
               </p>
             </div>
 

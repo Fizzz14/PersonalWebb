@@ -14,7 +14,7 @@ const projects = [
     desc: 'Aplikasi web prediksi cuaca akurat dengan informasi real-time dan deteksi lokasi, beserta detail kelembapan dan kecepatan angin.',
     tags: ['React', 'Tailwind CSS', 'OpenWeather API'],
     image: imgPOS,
-    github: 'https://github.com/Fizzz14/WeatherApp', 
+    github: 'https://github.com/Fizzz14/WeatherApp',
     live: '#',
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     desc: 'Aplikasi web pemantau intensitas karbon pada pemakaian energi listrik di Britania Raya (UK) secara real-time.',
     tags: ['React', 'JavaScript', 'Tailwind CSS', 'Fetch API'],
     image: imgHotel,
-    github: 'https://github.com/Fizzz14/UK-Carbon-Tracker', 
+    github: 'https://github.com/Fizzz14/UK-Carbon-Tracker',
     live: '#',
   },
   {
@@ -38,7 +38,7 @@ const projects = [
     desc: 'Website modern untuk coffee shop lokal Aranya Coffee. Menampilkan menu, galeri, dan info kontak dengan desain elegan dan responsif.',
     tags: ['React', 'Tailwind CSS', 'JavaScript'],
     image: aranyaImg,
-    github: 'https://github.com/Fizzz14/AranyaCoffee', 
+    github: 'https://github.com/Fizzz14/AranyaCoffee',
     live: '#',
   },
 ];
