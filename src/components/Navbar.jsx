@@ -4,13 +4,13 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { name: 'Home', to: 'home' },
-  { name: 'About', to: 'about' },
-  { name: 'Skills', to: 'skills' },
-  { name: 'Education', to: 'education' },
-  { name: 'Projects', to: 'projects' },
+  { name: 'Home',         to: 'home' },
+  { name: 'About',        to: 'about' },
+  { name: 'Skills',       to: 'skills' },
+  { name: 'Education',    to: 'education' },
+  { name: 'Projects',     to: 'projects' },
   { name: 'Certificates', to: 'certificates' },
-  { name: 'Contact', to: 'contact' },
+  { name: 'Contact',      to: 'contact' },
 ];
 
 const Navbar = () => {
@@ -18,77 +18,91 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const fn = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-3' : 'bg-transparent py-5'}`}>
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link to="home" smooth={true} duration={500} className="cursor-pointer">
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-400 ${
+        scrolled ? 'glass-nav py-3' : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="section-container flex justify-between items-center">
+
+        {/* Logo */}
+        <Link to="home" smooth duration={500} className="cursor-pointer">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold tracking-tighter"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-xl font-black tracking-[-0.04em] text-white/85 hover:text-white transition-colors select-none"
           >
-            Hafizh<span className="text-gray-500">Rahmat</span><span className="text-white"></span>
+            Hafizh<span className="text-white/25">Rahmat</span>
           </motion.div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {navLinks.map((link, i) => (
             <motion.div
               key={link.name}
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: 0.05 + i * 0.07, duration: 0.5, ease: [0.16,1,0.3,1] }}
             >
               <Link
                 to={link.to}
-                smooth={true}
+                smooth
                 duration={500}
-                spy={true}
-                activeClass="text-white font-medium after:w-full"
-                className="text-gray-400 hover:text-white cursor-pointer text-sm font-medium transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                spy
+                activeClass="!text-white"
+                className="text-xs font-mono text-white/35 hover:text-white/80 cursor-pointer tracking-widest uppercase transition-colors duration-250 relative group select-none"
               >
                 {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white/50 group-hover:w-full transition-all duration-300" />
               </Link>
             </motion.div>
           ))}
         </nav>
 
-        {/* Mobile Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden text-white/50 hover:text-white transition-colors cursor-pointer"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.nav
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-nav absolute top-full w-full left-0 flex flex-col items-center py-6 gap-4 overflow-hidden border-t border-white/5"
+            transition={{ duration: 0.35, ease: [0.16,1,0.3,1] }}
+            className="md:hidden overflow-hidden"
+            style={{ background: 'rgba(8,8,8,0.95)', backdropFilter: 'blur(24px)' }}
           >
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.to}
-                smooth={true}
-                duration={500}
-                spy={true}
-                onClick={() => setIsOpen(false)}
-                className="text-gray-300 hover:text-white cursor-pointer text-lg font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
+            <div className="section-container flex flex-col py-6 gap-5 border-t border-white/[0.04]">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.to}
+                  smooth
+                  duration={500}
+                  spy
+                  onClick={() => setIsOpen(false)}
+                  className="text-sm font-mono text-white/40 hover:text-white cursor-pointer tracking-widest uppercase transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>

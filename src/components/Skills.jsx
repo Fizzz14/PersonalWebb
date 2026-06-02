@@ -1,77 +1,92 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Code2, Database, Layout, Smartphone, CheckCircle2 } from 'lucide-react';
+import { Code2, Database, Layout, Smartphone, CheckCircle } from 'lucide-react';
 
 const hardSkills = [
-  { name: 'Flutter', icon: <Smartphone size={24} />, level: 85, color: 'bg-blue-500' },
-  { name: 'React JSX', icon: <Layout size={24} />, level: 90, color: 'bg-cyan-400' },
-  { name: 'Laravel 11', icon: <Code2 size={24} />, level: 80, color: 'bg-red-500' },
-  { name: 'MongoDB', icon: <Database size={24} />, level: 75, color: 'bg-green-500' },
-  { name: 'Git', icon: <Code2 size={24} />, level: 85, color: 'bg-orange-500' },
-  { name: 'JS/Dart/PHP', icon: <Code2 size={24} />, level: 88, color: 'bg-yellow-400' }
+  { name: 'Flutter', icon: <Smartphone size={18} />, level: 85, code: 'DART // MOBILE' },
+  { name: 'React JSX', icon: <Layout size={18} />, level: 90, code: 'JS // REACT_19' },
+  { name: 'Laravel 11', icon: <Code2 size={18} />, level: 80, code: 'PHP // MVC_API' },
+  { name: 'MongoDB', icon: <Database size={18} />, level: 75, code: 'DB // NOSQL' },
+  { name: 'Git', icon: <Code2 size={18} />, level: 85, code: 'VCS // GITHUB' },
+  { name: 'JS / Dart / PHP', icon: <Code2 size={18} />, level: 88, code: 'CORE // LANGS' },
 ];
 
 const softSkills = [
-  "Problem Solving", "Teamwork & Collaboration", "Adaptability", 
-  "Time Management", "Eager to Learn", "Communication"
+  'Advanced Problem Solving',
+  'Teamwork & Collaboration',
+  'Flexible Adaptability',
+  'Strict Time Management',
+  'Eager to Learn & Grow',
+  'Clear Tech Communication',
 ];
 
-const containerVariants = {
+const stagger = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.07 } },
 };
 
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.5 }
-  }
+const fadeUp = {
+  hidden: { y: 24, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
 };
 
 const Skills = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="skills" className="py-24 bg-graphite-900/20 relative">
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
-        <div className="mb-16">
-          <h2 className="text-sm font-mono text-gray-500 tracking-widest uppercase mb-2">02. Expertise</h2>
-          <h3 className="text-4xl md:text-5xl font-bold tracking-tight">Technical Skills</h3>
+    <section id="skills" className="py-32 bg-transparent relative">
+      <div className="section-container">
+
+        {/* Header */}
+        <div className="mb-20">
+          <div className="premium-divider mb-3">
+            <span className="tech-label">[ 02 // EXPERTISE ]</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter">
+            Technical <span className="text-white/20">Skills</span>
+          </h2>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
           {/* Hard Skills */}
           <motion.div
-            variants={containerVariants}
+            variants={stagger}
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            animate={isInView ? 'visible' : 'hidden'}
+            className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5"
           >
-            {hardSkills.map((skill, index) => (
-              <motion.div 
-                key={index} 
-                variants={itemVariants}
-                className="glass-card rounded-xl p-5 group flex items-center gap-4"
+            {hardSkills.map((skill, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="premium-card rounded-2xl p-6 group cursor-default"
               >
-                <div className={`p-3 rounded-lg bg-white/5 text-gray-400 group-hover:text-white transition-colors`}>
-                  {skill.icon}
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-white font-medium mb-2">{skill.name}</h4>
-                  <div className="w-full bg-black/50 rounded-full h-1.5 overflow-hidden">
-                    <motion.div 
-                      className="bg-white h-1.5 rounded-full"
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                      transition={{ duration: 1, delay: 0.2 + (index * 0.1) }}
-                    />
+                {/* Header row */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-white/[0.04] text-white/40 group-hover:text-white/80 group-hover:bg-white/[0.07] transition-all duration-300">
+                      {skill.icon}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white/85 group-hover:text-white transition-colors">{skill.name}</p>
+                      <p className="text-[9px] font-mono text-white/25 tracking-widest mt-0.5">{skill.code}</p>
+                    </div>
                   </div>
+                  <span className="text-[11px] font-mono text-white/30 bg-white/[0.03] border border-white/[0.06] px-2 py-0.5 rounded">
+                    {skill.level}%
+                  </span>
+                </div>
+
+                {/* Progress bar */}
+                <div className="skill-bar-track">
+                  <motion.div
+                    className="skill-bar-fill"
+                    initial={{ width: 0 }}
+                    animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
+                    transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 + i * 0.07 }}
+                  />
                 </div>
               </motion.div>
             ))}
@@ -79,21 +94,29 @@ const Skills = () => {
 
           {/* Soft Skills */}
           <motion.div
-            variants={containerVariants}
+            variants={stagger}
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="flex flex-col justify-center"
+            animate={isInView ? 'visible' : 'hidden'}
+            className="lg:col-span-4 glass-card rounded-2xl p-7 corner-mark self-stretch flex flex-col justify-center"
           >
-            <h4 className="text-2xl font-semibold mb-8">Soft Skills & Personality</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {softSkills.map((skill, index) => (
-                <motion.div 
-                  key={index} 
-                  variants={itemVariants}
-                  className="flex items-center gap-3"
+            <div className="corner-inner" />
+
+            <div className="mb-7 flex items-center justify-between">
+              <h4 className="text-base font-bold tracking-tight text-white/85">Core Strengths</h4>
+              <span className="text-[8px] font-mono text-white/15 tracking-widest">[ ENG // 0xCC ]</span>
+            </div>
+
+            <div className="space-y-5">
+              {softSkills.map((skill, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="flex items-center gap-3 group cursor-default"
                 >
-                  <CheckCircle2 className="text-gray-500" size={20} />
-                  <span className="text-gray-300">{skill}</span>
+                  <div className="shrink-0 w-1 h-1 rounded-full bg-white/30 group-hover:bg-white/80 transition-colors duration-300" />
+                  <span className="text-sm text-white/40 font-light group-hover:text-white/75 transition-colors duration-300">
+                    {skill}
+                  </span>
                 </motion.div>
               ))}
             </div>
