@@ -4,10 +4,10 @@ import { User, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 import profileImg from '../assets/hapis1.jpeg';
 
 const cards = [
-  { Icon: MapPin,       label: 'Location',   value: 'Ciderum, Bogor, INA' },
+  { Icon: MapPin, label: 'Location', value: 'Ciderum, Bogor, INA' },
   { Icon: GraduationCap, label: 'Education', value: 'SMK Wikrama Bogor' },
-  { Icon: Briefcase,    label: 'Experience', value: 'Software Internships' },
-  { Icon: User,         label: 'Focus',      value: 'Architecture & UX' },
+  { Icon: Briefcase, label: 'Experience', value: 'Software Internships' },
+  { Icon: User, label: 'Focus', value: 'Architecture & UX' },
 ];
 
 const About = () => {
@@ -86,7 +86,7 @@ const About = () => {
               </p>
               <p>
                 Meskipun berstatus siswa, saya telah melangkah lebih awal di dunia industri
-                melalui internship pengembangan software skala profesional — melatih kesiapan
+                melalui internship pengembangan software skala profesional, melatih kesiapan
                 dalam memecahkan masalah kompleks dan merancang arsitektur kode modern.
               </p>
             </div>
