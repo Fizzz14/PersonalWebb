@@ -14,7 +14,6 @@ import imgPOS    from '../assets/Screenshot 2026-05-18 190749.png';
 import imgAww    from '../assets/Screenshot 2026-05-18 190735.png';
 import imgHotel  from '../assets/Screenshot 2026-05-18 190659.png';
 import imgLokerku from '../assets/Screenshot 2026-06-03 141255.png';
-
 const projects = [
   {
     index: '01',
@@ -22,7 +21,11 @@ const projects = [
     desc: 'Platform penyewaan loker pintar berbasis web dengan sistem self-service, pembayaran cashless terintegrasi, manajemen daerah & loker, serta kontrol akses keamanan QR Code.',
     tags: ['Node.js', 'Express.js', 'MySQL', 'React', 'QR Access', 'Cashless API'],
     image: imgLokerku,
-    github: 'https://github.com/Fizzz14/Lokerku',
+    github: 'https://github.com/Fizzz14/fe-lokerku.git',
+    links: [
+      { label: 'FRONTEND_REPO', url: 'https://github.com/Fizzz14/fe-lokerku.git' },
+      { label: 'BACKEND_REPO', url: 'https://github.com/Fizzz14/be-lokerku.git' },
+    ],
     code: 'LOKERKU.PLATFORM',
   },
   {
@@ -137,16 +140,31 @@ const Projects = () => {
                   </div>
 
                   {/* Links */}
-                  <div className="flex items-center gap-5 pt-4 border-t border-white/[0.05]">
-                    <a
-                      href={item.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-[11px] font-mono text-white/30 hover:text-white/80 transition-colors duration-300"
-                    >
-                      <GithubIcon />
-                      SOURCE_CODE
-                    </a>
+                  <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-white/[0.05]">
+                    {item.links ? (
+                      item.links.map((link, linkIdx) => (
+                        <a
+                          key={linkIdx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-[11px] font-mono text-white/30 hover:text-white/80 transition-colors duration-300"
+                        >
+                          <GithubIcon />
+                          {link.label}
+                        </a>
+                      ))
+                    ) : (
+                      <a
+                        href={item.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[11px] font-mono text-white/30 hover:text-white/80 transition-colors duration-300"
+                      >
+                        <GithubIcon />
+                        SOURCE_CODE
+                      </a>
+                    )}
                   </div>
                 </div>
               </TiltCard>
