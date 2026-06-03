@@ -13,10 +13,20 @@ import aranyaImg from '../assets/Screenshot 2026-04-05 213034.png';
 import imgPOS    from '../assets/Screenshot 2026-05-18 190749.png';
 import imgAww    from '../assets/Screenshot 2026-05-18 190735.png';
 import imgHotel  from '../assets/Screenshot 2026-05-18 190659.png';
+import imgLokerku from '../assets/Screenshot 2026-06-03 141255.png';
 
 const projects = [
   {
     index: '01',
+    title: 'Lokerku',
+    desc: 'Platform penyewaan loker pintar berbasis web dengan sistem self-service, pembayaran cashless terintegrasi, manajemen daerah & loker, serta kontrol akses keamanan QR Code.',
+    tags: ['Node.js', 'Express.js', 'MySQL', 'React', 'QR Access', 'Cashless API'],
+    image: imgLokerku,
+    github: 'https://github.com/Fizzz14/Lokerku',
+    code: 'LOKERKU.PLATFORM',
+  },
+  {
+    index: '02',
     title: 'WeatherApp',
     desc: 'Aplikasi web prediksi cuaca akurat dengan informasi real-time, deteksi lokasi otomatis, serta detail kelembapan dan kecepatan angin.',
     tags: ['React', 'Tailwind CSS', 'OpenWeather API'],
@@ -25,7 +35,7 @@ const projects = [
     code: 'WEATHER.APP',
   },
   {
-    index: '02',
+    index: '03',
     title: 'Louis Vuitton Clone',
     desc: 'Landing page bergaya elegan mereplikasi antarmuka website Louis Vuitton dengan responsive frame dan animasi premium.',
     tags: ['Laravel 11', 'MySQL', 'REST API'],
@@ -34,7 +44,7 @@ const projects = [
     code: 'LUXURY.LV',
   },
   {
-    index: '03',
+    index: '04',
     title: 'UK Carbon Tracker',
     desc: 'Aplikasi web pemantau intensitas karbon pada pemakaian energi listrik di Britania Raya secara real-time.',
     tags: ['React', 'JavaScript', 'Fetch API'],
@@ -43,7 +53,7 @@ const projects = [
     code: 'CARBON.UK',
   },
   {
-    index: '04',
+    index: '05',
     title: 'Aranya Coffee',
     desc: 'Website modern untuk coffee shop lokal Aranya Coffee — menampilkan menu, galeri, dan info kontak dengan desain elegan dan responsif.',
     tags: ['React', 'Tailwind CSS', 'JavaScript'],
