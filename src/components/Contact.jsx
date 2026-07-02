@@ -98,38 +98,38 @@ const Contact = () => {
           >
             <div>
               <div className="premium-divider mb-3">
-                <span className="tech-label">[ 06 // CONNECT ]</span>
+                <span className="tech-label">[ CONNECT ]</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-                Get In <span className="text-gray-500">Touch</span>
+                INITIATE <span className="text-primary">COMMUNICATION.</span>
               </h2>
             </div>
 
-            <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed max-w-md">
+            <p className="text-on-surface-variant text-base md:text-lg font-light leading-relaxed max-w-md">
               Meskipun saat ini saya fokus pada masa studi di Wikrama, saya selalu antusias membuka ruang diskusi teknologi, kolaborasi project baru, atau peluang mentoring menarik.
             </p>
 
             {/* Premium Micro Info Cards */}
             <div className="space-y-4">
-              <div className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/10 group cursor-default">
-                <div className="p-2.5 rounded-lg bg-white/5 text-gray-400 group-hover:text-cyan-400 group-hover:bg-cyan-500/5 transition-all">
+              <div className="flex items-center gap-4 p-4 rounded-none border border-outline bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-primary/30 group cursor-default">
+                <div className="p-2.5 rounded-none bg-white/[0.02] text-primary group-hover:text-black group-hover:bg-primary transition-all">
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-mono text-white/30 tracking-wider uppercase">Direct Mail</p>
-                  <a href="mailto:Hafizhrahmat7@gmail.com" className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300">
+                  <p className="text-[10px] font-mono text-primary/40 tracking-wider uppercase">Direct Mail</p>
+                  <a href="mailto:Hafizhrahmat7@gmail.com" className="text-sm font-medium text-on-surface-variant hover:text-white transition-colors duration-300">
                     Hafizhrahmat7@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-white/10 group cursor-default">
-                <div className="p-2.5 rounded-lg bg-white/5 text-gray-400 group-hover:text-cyan-400 group-hover:bg-cyan-500/5 transition-all">
+              <div className="flex items-center gap-4 p-4 rounded-none border border-outline bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-primary/30 group cursor-default">
+                <div className="p-2.5 rounded-none bg-white/[0.02] text-primary group-hover:text-black group-hover:bg-primary transition-all">
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-mono text-white/30 tracking-wider uppercase">Headquarters</p>
-                  <p className="text-sm font-medium text-gray-300">Ciderum, Bogor, Jawa Barat</p>
+                  <p className="text-[10px] font-mono text-primary/40 tracking-wider uppercase">Headquarters</p>
+                  <p className="text-sm font-medium text-on-surface-variant">Ciderum, Bogor, Jawa Barat</p>
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center bg-white/5 hover:bg-white hover:text-black hover:-translate-y-1 transition-all duration-300 shadow-md"
+                  className="w-11 h-11 rounded-none border border-outline flex items-center justify-center bg-white/[0.01] text-primary/60 hover:bg-primary hover:text-black hover:border-primary hover:-translate-y-1 transition-all duration-300 shadow-md"
                 >
                   <Icon />
                 </a>
@@ -160,12 +160,12 @@ const Contact = () => {
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="lg:col-span-7 glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden flex flex-col justify-center min-h-[460px] corner-mark"
+            className="lg:col-span-7 glass-card p-8 md:p-10 rounded-none relative overflow-hidden flex flex-col justify-center min-h-[460px] corner-mark"
           >
             <div className="corner-inner" />
 
             <div className="absolute top-5 right-6 z-20 pointer-events-none">
-              <span className="text-[9px] font-mono text-white/20 tracking-widest">[ SYS // MSG_0x9A ]</span>
+              <span className="text-[9px] font-mono text-primary/30 tracking-widest">[ SYS // MSG_0x9A ]</span>
             </div>
 
             <AnimatePresence mode="wait">
@@ -182,26 +182,26 @@ const Contact = () => {
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                   >
-                    <CheckCircle2 size={56} className="text-cyan-400" />
+                    <CheckCircle2 size={56} className="text-primary" />
                   </motion.div>
-                  <h4 className="text-2xl font-bold text-white tracking-tight">Pesan Terkirim</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed max-w-sm font-light">
-                    Terima kasih! Pesan Anda telah dikirim dan diteruskan langsung ke email pribadi saya. Saya akan merespons secepat mungkin.
+                  <h4 className="text-2xl font-bold text-white tracking-tight">TRANSMISSION COMPLETE</h4>
+                  <p className="text-on-surface-variant text-sm leading-relaxed max-w-sm font-light">
+                    Terima kasih! Pesan Anda telah berhasil ditransmisikan dan diteruskan langsung ke email pribadi saya. Saya akan merespons secepat mungkin.
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setStatus('idle')}
-                    className="mt-6 px-6 py-2.5 border border-white/10 rounded-full text-xs font-mono text-gray-400 hover:text-white hover:border-white/30 transition-all cursor-pointer"
+                    className="mt-6 px-6 py-2.5 border border-outline rounded-none text-xs font-mono text-primary/60 hover:text-white hover:border-primary transition-all cursor-pointer"
                   >
-                    Kirim Pesan Lain
+                    Transmit Another Message
                   </motion.button>
                 </motion.div>
               ) : (
                 <motion.form
                   key="form"
                   onSubmit={handleSubmit}
-                  className="space-y-6 pt-4"
+                  className="space-y-8 pt-4"
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
@@ -209,70 +209,66 @@ const Contact = () => {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="p-4 bg-red-950/30 border border-red-500/20 rounded-xl flex items-center gap-3 text-red-400 text-sm"
+                      className="p-4 bg-red-950/30 border border-red-500/20 rounded-none flex items-center gap-3 text-red-400 text-sm"
                     >
                       <AlertCircle size={18} className="flex-shrink-0" />
                       <span>{errorMsg}</span>
                     </motion.div>
                   )}
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-[10px] font-mono text-gray-500 mb-2 tracking-widest uppercase">01. FULL NAME</label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your Name"
-                        disabled={status === 'submitting'}
-                        className="w-full px-4 py-3.5 bg-white/[0.01] border border-white/5 hover:border-white/10 rounded-xl focus:outline-none focus:border-cyan-500/50 focus:bg-white/[0.03] text-white text-sm transition-all duration-300 disabled:opacity-50"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-mono text-gray-500 mb-2 tracking-widest uppercase">02. EMAIL ADDRESS</label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Your Email"
-                        disabled={status === 'submitting'}
-                        className="w-full px-4 py-3.5 bg-white/[0.01] border border-white/5 hover:border-white/10 rounded-xl focus:outline-none focus:border-cyan-500/50 focus:bg-white/[0.03] text-white text-sm transition-all duration-300 disabled:opacity-50"
-                      />
-                    </div>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Identity (Full Name)"
+                      disabled={status === 'submitting'}
+                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-mono text-white disabled:opacity-50"
+                    />
                   </div>
 
-                  <div>
-                    <label className="block text-[10px] font-mono text-gray-500 mb-2 tracking-widest uppercase">03. MESSAGE CONTENT</label>
+                  <div className="relative">
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Communication Channel (Email Address)"
+                      disabled={status === 'submitting'}
+                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-mono text-white disabled:opacity-50"
+                    />
+                  </div>
+
+                  <div className="relative">
                     <textarea
                       name="message"
-                      rows="5"
+                      rows="4"
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Hey Hafizh, let's build something awesome together..."
+                      placeholder="Message Protocol"
                       disabled={status === 'submitting'}
-                      className="w-full px-4 py-3.5 bg-white/[0.01] border border-white/5 hover:border-white/10 rounded-xl focus:outline-none focus:border-cyan-500/50 focus:bg-white/[0.03] text-white text-sm transition-all duration-300 resize-none disabled:opacity-50"
+                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-mono text-white resize-none disabled:opacity-50"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="w-full group relative inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-black bg-white rounded-xl overflow-hidden transition-all duration-300 hover:bg-cyan-400 hover:shadow-[0_0_25px_rgba(6,182,212,0.3)] disabled:opacity-75 disabled:hover:bg-white focus:outline-none cursor-pointer"
+                    className="w-full btn-primary group rounded-none"
                   >
                     {status === 'submitting' ? (
                       <>
-                        <Loader2 className="animate-spin mr-2" size={16} />
-                        <span>SENDING_MESSAGE...</span>
+                        <Loader2 className="animate-spin mr-2 text-black" size={16} />
+                        <span>TRANSMITTING_DATA...</span>
                       </>
                     ) : (
                       <>
-                        <span className="mr-2">SEND_MESSAGE</span>
-                        <Send size={15} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <span className="mr-2 text-black">TRANSMIT DATA</span>
+                        <Send size={15} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-black" />
                       </>
                     )}
                   </button>

@@ -77,10 +77,10 @@ const Projects = () => {
         {/* Header */}
         <div className="mb-20">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ 04 // WORKS ]</span>
+            <span className="tech-label">[ WORKS ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter">
-            Featured <span className="text-white/20">Projects</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
+            Project <span className="text-primary">Archive</span>
           </h2>
         </div>
 
@@ -96,11 +96,11 @@ const Projects = () => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
               className="h-full"
             >
-              <TiltCard className="group premium-card rounded-2xl overflow-hidden relative h-full flex flex-col corner-mark">
+              <TiltCard className="group premium-card rounded-none overflow-hidden relative h-full flex flex-col corner-mark border border-outline hover:border-primary">
                 <div className="corner-inner" />
 
                 {/* Index badge */}
-                <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/70 border border-white/[0.07] px-2.5 py-1 rounded text-[8px] font-mono tracking-widest text-white/35 uppercase">
+                <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/80 border border-outline px-2.5 py-1 text-[8px] font-mono tracking-widest text-primary uppercase">
                   PRJ_{item.index} // {item.code}
                 </div>
 
@@ -119,11 +119,11 @@ const Projects = () => {
 
                 {/* Content */}
                 <div className="p-7 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold text-white/85 mb-2 group-hover:text-white transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-white/35 leading-relaxed font-light flex-1 mb-5">
+                  <p className="text-sm text-on-surface-variant leading-relaxed font-light flex-1 mb-5">
                     {item.desc}
                   </p>
 
@@ -132,7 +132,7 @@ const Projects = () => {
                     {item.tags.map((tag, ti) => (
                       <span
                         key={ti}
-                        className="px-2.5 py-1 text-[10px] font-mono rounded-full bg-white/[0.03] border border-white/[0.06] text-white/35 group-hover:text-white/60 group-hover:border-white/[0.12] transition-all duration-300"
+                        className="px-2.5 py-1 text-[10px] font-mono bg-white/[0.01] border border-outline text-primary/60 group-hover:text-primary group-hover:border-primary/30 transition-all duration-300"
                       >
                         {tag}
                       </span>
@@ -140,7 +140,7 @@ const Projects = () => {
                   </div>
 
                   {/* Links */}
-                  <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-white/[0.05]">
+                  <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-outline">
                     {item.links ? (
                       item.links.map((link, linkIdx) => (
                         <a
@@ -148,7 +148,7 @@ const Projects = () => {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-[11px] font-mono text-white/30 hover:text-white/80 transition-colors duration-300"
+                          className="flex items-center gap-2 text-[11px] font-mono text-primary/50 hover:text-primary transition-colors duration-300"
                         >
                           <GithubIcon />
                           {link.label}
@@ -159,7 +159,7 @@ const Projects = () => {
                         href={item.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[11px] font-mono text-white/30 hover:text-white/80 transition-colors duration-300"
+                        className="flex items-center gap-2 text-[11px] font-mono text-primary/50 hover:text-primary transition-colors duration-300"
                       >
                         <GithubIcon />
                         SOURCE_CODE

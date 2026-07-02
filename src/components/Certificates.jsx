@@ -41,10 +41,10 @@ const Certificates = () => {
         {/* Header */}
         <div className="mb-20">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ 05 // ACHIEVEMENTS ]</span>
+            <span className="tech-label">[ ACHIEVEMENTS ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter">
-            Certificates <span className="text-white/20">&amp; Awards</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
+            System <span className="text-primary">Recognition</span>
           </h2>
         </div>
 
@@ -63,7 +63,7 @@ const Certificates = () => {
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
               className="block h-full"
             >
-              <TiltCard className="group glass-card rounded-2xl overflow-hidden relative flex flex-col h-full corner-mark">
+              <TiltCard className="group glass-card rounded-none overflow-hidden relative flex flex-col h-full corner-mark border border-outline hover:border-primary">
                 <div className="corner-inner" />
 
                 {/* Image */}
@@ -77,19 +77,19 @@ const Certificates = () => {
 
                   {/* Hover icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <div className="bg-black/55 border border-white/10 p-3 rounded-full backdrop-blur-sm">
-                      <ExternalLink size={20} className="text-white/80" />
+                    <div className="bg-black/75 border border-primary p-3 rounded-none backdrop-blur-sm">
+                      <ExternalLink size={20} className="text-primary" />
                     </div>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-5 flex flex-col flex-1">
-                  <h4 className="text-sm font-semibold text-white/75 mb-1.5 leading-snug group-hover:text-white transition-colors line-clamp-2">
+                  <h4 className="text-sm font-semibold text-white mb-1.5 leading-snug group-hover:text-primary transition-colors line-clamp-2">
                     {cert.title}
                   </h4>
-                  <p className="text-[11px] text-white/30 mb-1">{cert.issuer}</p>
-                  <p className="text-[10px] font-mono text-white/18 tracking-widest mt-auto pt-2 border-t border-white/[0.04]">
+                  <p className="text-[11px] text-on-surface-variant mb-1">{cert.issuer}</p>
+                  <p className="text-[10px] font-mono text-primary/60 tracking-widest mt-auto pt-2 border-t border-outline">
                     {cert.date}
                   </p>
                 </div>

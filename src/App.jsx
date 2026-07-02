@@ -21,7 +21,7 @@ function App() {
   return (
     <ReactLenis root options={{ lerp: 0.075, duration: 1.1, smoothTouch: false }}>
       {/* ── LAYER 1: Base black background ── */}
-      <div className="bg-[#080808] min-h-screen text-white font-sans relative tech-grid">
+      <div className="bg-black min-h-screen text-white font-sans relative tech-grid">
 
         {/* ── LAYER 2: Permanent noise/particle canvas ── */}
         <ParticleBackground />

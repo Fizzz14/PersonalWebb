@@ -21,10 +21,10 @@ const About = () => {
         {/* Header */}
         <div className="mb-20">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ 01 // PROFILE ]</span>
+            <span className="tech-label">[ PROFILE ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter">
-            About <span className="text-white/20">Me</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
+            About <span className="text-primary">Me</span>
           </h2>
         </div>
 
@@ -37,16 +37,16 @@ const About = () => {
         >
           {/* Photo */}
           <div className="w-full md:w-5/12 flex justify-center shrink-0">
-            <div className="relative w-full max-w-[340px] aspect-square rounded-2xl corner-mark group">
+            <div className="relative w-full max-w-[340px] aspect-square rounded-none corner-mark group">
               <div className="corner-inner" />
 
               {/* Tag */}
-              <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/70 border border-white/[0.07] px-2.5 py-1 rounded text-[8px] font-mono tracking-widest text-white/35 uppercase">
+              <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/70 border border-outline px-2.5 py-1 text-[8px] font-mono tracking-widest text-primary uppercase">
                 IMG_0823 // ENCRYPTED
               </div>
 
               {/* Frame */}
-              <div className="relative w-full h-full overflow-hidden rounded-2xl border border-white/[0.06] bg-neutral-900 shadow-[0_0_60px_-15px_rgba(0,0,0,1)]">
+              <div className="relative w-full h-full overflow-hidden border border-outline bg-neutral-900 shadow-[0_0_60px_-15px_rgba(0,0,0,1)]">
                 <img
                   src={profileImg}
                   alt="Muhammad Hafizh Rahmat"
@@ -57,7 +57,7 @@ const About = () => {
               </div>
 
               {/* Bottom ref tag */}
-              <div className="absolute -bottom-4 right-3 z-20 pointer-events-none font-mono text-[8px] tracking-widest text-white/20">
+              <div className="absolute -bottom-4 right-3 z-20 pointer-events-none font-mono text-[8px] tracking-widest text-primary/30">
                 REF_ID // 17-PPLG-WIKRAMA
               </div>
             </div>
@@ -66,20 +66,20 @@ const About = () => {
           {/* Text */}
           <div className="w-full md:w-7/12 space-y-7">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white/90 leading-snug">
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
                 Muhammad Hafizh Rahmat
               </h3>
-              <p className="text-[10px] font-mono text-white/30 tracking-widest mt-1.5 uppercase">
+              <p className="text-[10px] font-mono text-primary tracking-widest mt-1.5 uppercase">
                 // Software & Game Dev Student
               </p>
             </div>
 
-            <div className="text-white/38 space-y-5 text-sm md:text-base leading-[1.85] font-light">
+            <div className="text-on-surface-variant space-y-5 text-sm md:text-base leading-[1.85] font-light">
               <p>
                 Saya adalah pelajar berusia{' '}
-                <span className="text-white/75 font-medium">17 tahun</span>{' '}
+                <span className="text-white font-medium">17 tahun</span>{' '}
                 dari Ciderum, Bogor. Saat ini menempuh pendidikan di{' '}
-                <span className="text-white/65 underline underline-offset-4 decoration-white/20 font-medium">
+                <span className="text-primary underline underline-offset-4 decoration-primary/45 font-medium">
                   SMK Wikrama Bogor
                 </span>
                 , tempat saya mengasah keahlian rekayasa perangkat lunak dan game development.
@@ -96,14 +96,14 @@ const About = () => {
               {cards.map(({ Icon, label, value }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-3.5 p-4 rounded-xl border border-white/[0.05] bg-white/[0.015] hover:bg-white/[0.03] hover:border-white/[0.1] transition-all duration-300 group cursor-default"
+                  className="flex items-center gap-3.5 p-4 border border-outline bg-white/[0.01] hover:bg-white/[0.03] hover:border-primary/30 transition-all duration-300 group cursor-default"
                 >
-                  <div className="p-2 rounded-lg bg-white/[0.04] text-white/30 group-hover:text-white/70 group-hover:bg-white/[0.07] transition-all duration-300">
+                  <div className="p-2 bg-white/[0.03] text-primary/60 group-hover:text-primary group-hover:bg-white/[0.07] transition-all duration-300">
                     <Icon size={16} />
                   </div>
                   <div>
-                    <p className="text-[9px] font-mono text-white/20 tracking-widest uppercase">{label}</p>
-                    <p className="text-sm font-medium text-white/60 group-hover:text-white/85 transition-colors mt-0.5">{value}</p>
+                    <p className="text-[9px] font-mono text-primary/40 tracking-widest uppercase">{label}</p>
+                    <p className="text-sm font-medium text-on-surface-variant group-hover:text-white transition-colors mt-0.5">{value}</p>
                   </div>
                 </div>
               ))}
