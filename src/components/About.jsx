@@ -79,7 +79,7 @@ const About = () => {
                   Saya adalah pelajar berusia{' '}
                   <span className="text-white font-medium">17 tahun</span>{' '}
                   dari Ciderum, Bogor. Saat ini menempuh pendidikan di{' '}
-                  <span className="text-orange-500 underline underline-offset-4 decoration-orange-500/45 font-medium">
+                  <span className="text-[#FF3B30] underline underline-offset-4 decoration-[#FF3B30]/45 font-medium">
                     SMK Wikrama Bogor
                   </span>
                   , tempat saya mengasah keahlian rekayasa perangkat lunak dan mobile development.
