@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Smartphone, Layout, Code2, Database, GitBranch, Cpu, Check, Server } from 'lucide-react';
 import TiltCard from './TiltCard';
 import TechMarquee from './TechMarquee';
@@ -83,9 +83,6 @@ const fadeUp = {
 };
 
 const Skills = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-
   return (
     <section id="skills" className="py-32 bg-transparent relative overflow-hidden select-none">
       
@@ -103,13 +100,14 @@ const Skills = () => {
           </h2>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
 
           {/* Hard Skills Showcase */}
           <motion.div
             variants={stagger}
             initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
+            whileInView="visible"
+            viewport={{ once: true }}
             className="lg:col-span-8 isometric-card-container grid grid-cols-1 sm:grid-cols-2 gap-8"
           >
             {hardSkills.map((skill, i) => (
@@ -165,7 +163,8 @@ const Skills = () => {
           <motion.div
             variants={stagger}
             initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
+            whileInView="visible"
+            viewport={{ once: true }}
             className="lg:col-span-4 h-full"
           >
             <TiltCard className="glass-card rounded-none p-7 bg-black corner-mark h-full flex flex-col justify-center border border-outline hover:border-primary/50">

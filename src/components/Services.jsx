@@ -57,7 +57,7 @@ const Services = () => {
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
               className={`p-8 border rounded-none flex flex-col justify-between min-h-[320px] transition-all duration-500 cursor-default relative overflow-hidden group ${
                 spec.highlight
