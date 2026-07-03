@@ -21,7 +21,7 @@ function App() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   return (
-    <>
+    <ReactLenis root options={{ lerp: 0.075, duration: 1.1, smoothTouch: false }}>
       {/* ── LAYER 1: Base black background ── */}
       <div className="bg-black min-h-screen text-white font-sans relative tech-grid">
 
@@ -64,7 +64,7 @@ function App() {
           )}
         </div>
       </div>
-    </>
+    </ReactLenis>
   );
 }
 
