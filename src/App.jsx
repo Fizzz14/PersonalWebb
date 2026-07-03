@@ -49,15 +49,44 @@ function App() {
             >
               <Navbar />
               <main className="relative z-10 bg-transparent flex-1">
-                <Hero />
-                <Services />
-                <About />
-                <ImmersiveSection />
-                <Skills />
-                <Education />
-                <Projects />
-                <Certificates />
-                <Contact />
+                {/* Hero is pinned at the bottom layer */}
+                <div className="sticky top-0 z-10 w-full h-screen bg-black">
+                  <Hero />
+                </div>
+                
+                {/* Services slides up over Hero */}
+                <div className="relative z-20 w-full bg-black shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
+                  <Services />
+                </div>
+
+                {/* About slides up next */}
+                <div className="relative z-20 w-full bg-black">
+                  <About />
+                </div>
+
+                {/* Immersive Section triggers scroll pinning */}
+                <div className="relative z-30 w-full bg-black">
+                  <ImmersiveSection />
+                </div>
+
+                {/* Skills slides up over Immersive Section */}
+                <div className="relative z-40 w-full bg-black shadow-[0_-30px_60px_rgba(0,0,0,0.8)]">
+                  <Skills />
+                </div>
+
+                {/* Education, Projects, Certificates, Contact follow naturally */}
+                <div className="relative z-40 w-full bg-black">
+                  <Education />
+                </div>
+                <div className="relative z-45 w-full bg-black">
+                  <Projects />
+                </div>
+                <div className="relative z-45 w-full bg-black">
+                  <Certificates />
+                </div>
+                <div className="relative z-50 w-full bg-black">
+                  <Contact />
+                </div>
               </main>
               <Footer />
             </motion.div>

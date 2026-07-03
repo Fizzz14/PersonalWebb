@@ -84,23 +84,26 @@ const fadeUp = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-32 bg-transparent relative overflow-hidden select-none">
+    <section id="skills" className="py-32 bg-black border-y border-outline relative overflow-hidden select-none">
       
       {/* Infinite technology ribbon marquee */}
       <TechMarquee />
 
-      <div className="section-container">
-        {/* Header */}
-        <div className="mb-20">
+      <div className="section-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+        {/* Left Column: Pinned Header */}
+        <div className="lg:col-span-3 lg:sticky lg:top-32 self-start">
           <div className="premium-divider mb-3">
             <span className="tech-label">[ EXPERTISE ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+          <h2 className="text-3xl font-black tracking-tight text-white uppercase leading-none font-sans">
             CORE <span className="text-primary">ARCHITECTURE</span>
           </h2>
+          <div className="h-[1px] w-12 bg-primary/30 mt-6 hidden lg:block" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+        {/* Right Column: Scrollable Content Grid */}
+        <div className="lg:col-span-9 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
           {/* Hard Skills Showcase */}
           <motion.div
@@ -193,6 +196,7 @@ const Skills = () => {
               </div>
             </TiltCard>
           </motion.div>
+
         </div>
       </div>
     </section>

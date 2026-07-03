@@ -43,86 +43,89 @@ const stats = [
 
 const Certificates = () => {
   return (
-    <section id="certificates" className="py-32 bg-transparent relative">
-      <div className="section-container">
+    <section id="certificates" className="py-32 bg-black border-y border-outline relative">
+      <div className="section-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-        {/* Header */}
-        <div className="mb-20">
+        {/* Left Column: Pinned Header */}
+        <div className="lg:col-span-3 lg:sticky lg:top-32 self-start">
           <div className="premium-divider mb-3">
             <span className="tech-label">[ ACHIEVEMENTS ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+          <h2 className="text-3xl font-black tracking-tight text-white uppercase leading-none font-sans">
             SYSTEM <span className="text-primary">RECOGNITION</span>
           </h2>
+          <div className="h-[1px] w-12 bg-primary/30 mt-6 hidden lg:block" />
         </div>
 
-        {/* 2x4 Metric Capabilities Dashboard Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 border-l border-t border-outline mb-16 select-none bg-black">
-          {stats.map((stat, idx) => (
-            <div 
-              key={idx} 
-              className="border-r border-b border-outline p-6 md:p-8 flex flex-col justify-between hover:bg-white/[0.01] transition-colors duration-300"
-            >
-              <span className="text-3xl md:text-4xl font-black text-primary tracking-tight font-sans">
-                {stat.value}
-              </span>
-              <span className="text-[10px] font-bold tracking-[0.18em] text-white/40 uppercase mt-2.5 font-sans leading-tight">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
+        {/* Right Column: Scrollable Content Grid */}
+        <div className="lg:col-span-9 space-y-16">
+          {/* 2x4 Metric Capabilities Dashboard Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 border-l border-t border-outline select-none bg-black">
+            {stats.map((stat, idx) => (
+              <div 
+                key={idx} 
+                className="border-r border-b border-outline p-6 md:p-8 flex flex-col justify-between hover:bg-white/[0.01] transition-colors duration-300"
+              >
+                <span className="text-3xl md:text-4xl font-black text-primary tracking-tight font-sans">
+                  {stat.value}
+                </span>
+                <span className="text-[10px] font-bold tracking-[0.18em] text-white/40 uppercase mt-2.5 font-sans leading-tight">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
 
-        {/* Certificates Grid */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {certificates.map((cert, i) => (
-            <motion.a
-              key={i}
-              href={cert.pdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
-              className="block h-full"
-            >
-              <TiltCard className="group glass-card rounded-none overflow-hidden relative flex flex-col h-full corner-mark border border-outline hover:border-primary">
-                <div className="corner-inner" />
+          {/* Certificates Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certificates.map((cert, i) => (
+              <motion.a
+                key={i}
+                href={cert.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
+                className="block h-full"
+              >
+                <TiltCard className="group glass-card rounded-none overflow-hidden relative flex flex-col h-full corner-mark border border-outline hover:border-primary">
+                  <div className="corner-inner" />
 
-                {/* Image */}
-                <div className="aspect-[4/3] overflow-hidden relative bg-neutral-900">
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10 duration-500" />
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700"
-                  />
+                  {/* Image */}
+                  <div className="aspect-[4/3] overflow-hidden relative bg-neutral-900">
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10 duration-500" />
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700"
+                    />
 
-                  {/* Hover icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <div className="bg-black/75 border border-primary p-3 rounded-none backdrop-blur-sm">
-                      <ExternalLink size={20} className="text-primary" />
+                    {/* Hover icon */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                      <div className="bg-black/75 border border-primary p-3 rounded-none backdrop-blur-sm">
+                        <ExternalLink size={20} className="text-primary" />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-5 flex flex-col flex-1 bg-black">
-                  <h4 className="text-sm font-semibold text-white mb-1.5 leading-snug group-hover:text-primary transition-colors line-clamp-2 uppercase font-sans">
-                    {cert.title}
-                  </h4>
-                  <p className="text-[11px] text-on-surface-variant mb-1 uppercase font-sans font-medium">{cert.issuer}</p>
-                  <p className="text-[10px] font-sans font-semibold text-primary/60 tracking-[0.15em] mt-auto pt-2 border-t border-outline uppercase">
-                    {cert.date}
-                  </p>
-                </div>
-              </TiltCard>
-            </motion.a>
-          ))}
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1 bg-black">
+                    <h4 className="text-sm font-semibold text-white mb-1.5 leading-snug group-hover:text-primary transition-colors line-clamp-2 uppercase font-sans">
+                      {cert.title}
+                    </h4>
+                    <p className="text-[11px] text-on-surface-variant mb-1 uppercase font-sans font-medium">{cert.issuer}</p>
+                    <p className="text-[10px] font-sans font-semibold text-primary/60 tracking-[0.15em] mt-auto pt-2 border-t border-outline uppercase">
+                      {cert.date}
+                    </p>
+                  </div>
+                </TiltCard>
+              </motion.a>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );

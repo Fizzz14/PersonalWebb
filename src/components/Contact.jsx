@@ -82,11 +82,24 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-transparent relative select-none">
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+    <section id="contact" className="py-32 bg-black border-t border-outline relative select-none">
+      <div className="section-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        {/* Left Column: Pinned Header */}
+        <div className="lg:col-span-3 lg:sticky lg:top-32 self-start">
+          <div className="premium-divider mb-3">
+            <span className="tech-label">[ CONNECT ]</span>
+          </div>
+          <h2 className="text-3xl font-black tracking-tight text-white uppercase leading-none font-sans">
+            GET IN <span className="text-primary">TOUCH</span>
+          </h2>
+          <div className="h-[1px] w-12 bg-primary/30 mt-6 hidden lg:block" />
+        </div>
+
+        {/* Right Column: Scrollable Grid */}
+        <div className="lg:col-span-9 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Side: Info Telemetry */}
+          {/* Info Telemetry */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -94,62 +107,64 @@ const Contact = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 space-y-8"
           >
-            <div>
-              <div className="premium-divider mb-3">
-                <span className="tech-label">[ INQUIRIES ]</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
-                GET IN <span className="text-primary">TOUCH.</span>
-              </h2>
-            </div>
-
             <p className="text-on-surface-variant text-base md:text-lg font-light leading-relaxed max-w-md">
               Meskipun saat ini saya fokus pada masa studi di Wikrama, saya selalu antusias membuka ruang diskusi teknologi, kolaborasi project baru, atau peluang mentoring menarik.
             </p>
 
             {/* Premium Micro Info Cards */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-4 p-4 rounded-none border border-outline bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-primary/30 group cursor-default">
-                <div className="p-2.5 rounded-none bg-white/[0.02] text-primary group-hover:text-black group-hover:bg-primary transition-all">
+            <div className="space-y-4 max-w-md pt-4">
+              <div className="flex items-center gap-4 p-4 border border-outline bg-white/[0.01] hover:border-primary/20 transition-all duration-300">
+                <div className="p-2.5 bg-white/[0.02] text-primary/60">
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-sans font-semibold text-primary/40 tracking-[0.15em] uppercase">Direct Mail</p>
-                  <a href="mailto:Hafizhrahmat7@gmail.com" className="text-sm font-medium text-on-surface-variant hover:text-white transition-colors duration-300 font-sans">
-                    Hafizhrahmat7@gmail.com
+                  <p className="text-[9px] font-sans font-semibold text-primary/35 tracking-[0.25em] uppercase">E-Mail Address</p>
+                  <a href="mailto:hafizhrahmat7@gmail.com" className="text-sm font-semibold text-white hover:text-primary transition-colors">
+                    hafizhrahmat7@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-none border border-outline bg-white/[0.01] hover:bg-white/[0.03] transition-all hover:border-primary/30 group cursor-default">
-                <div className="p-2.5 rounded-none bg-white/[0.02] text-primary group-hover:text-black group-hover:bg-primary transition-all">
+              <div className="flex items-center gap-4 p-4 border border-outline bg-white/[0.01] hover:border-primary/20 transition-all duration-300">
+                <div className="p-2.5 bg-white/[0.02] text-primary/60">
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-sans font-semibold text-primary/40 tracking-[0.15em] uppercase">Headquarters</p>
-                  <p className="text-sm font-medium text-on-surface-variant font-sans">Ciderum, Bogor, Jawa Barat</p>
+                  <p className="text-[9px] font-sans font-semibold text-primary/35 tracking-[0.25em] uppercase">Current Base</p>
+                  <p className="text-sm font-semibold text-white">Bogor, Indonesia</p>
                 </div>
               </div>
             </div>
 
             {/* Social Grid */}
-            <div className="flex gap-4 pt-4">
-              {[
-                { Icon: GithubIcon, url: 'https://github.com/Fizzz14', label: 'GitHub' },
-                { Icon: LinkedinIcon, url: 'https://www.linkedin.com/in/muhammad-hafizh-rahmat/', label: 'LinkedIn' },
-                { Icon: InstagramIcon, url: 'https://www.instagram.com/_hafizzhh/', label: 'Instagram' },
-              ].map(({ Icon, url, label }, idx) => (
+            <div className="pt-6">
+              <p className="text-[9px] font-sans font-semibold text-primary/40 tracking-[0.25em] uppercase mb-4">SOCIAL DIRECTORY</p>
+              <div className="flex gap-4">
                 <a
-                  key={idx}
-                  href={url}
+                  href="https://github.com/Fizzz14"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-11 h-11 rounded-none border border-outline flex items-center justify-center bg-white/[0.01] text-primary/60 hover:bg-primary hover:text-black hover:border-primary hover:-translate-y-1 transition-all duration-300 shadow-md"
+                  className="p-3 border border-outline bg-white/[0.01] text-white/50 hover:text-primary hover:border-primary/45 transition-all duration-300"
                 >
-                  <Icon />
+                  <GithubIcon />
                 </a>
-              ))}
+                <a
+                  href="https://www.linkedin.com/in/muhammad-hafizh-rahmat-774026315"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 border border-outline bg-white/[0.01] text-white/50 hover:text-primary hover:border-primary/45 transition-all duration-300"
+                >
+                  <LinkedinIcon />
+                </a>
+                <a
+                  href="https://www.instagram.com/hapisssss.14"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 border border-outline bg-white/[0.01] text-white/50 hover:text-primary hover:border-primary/45 transition-all duration-300"
+                >
+                  <InstagramIcon />
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -161,114 +176,143 @@ const Contact = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="lg:col-span-7 bg-black p-8 md:p-10 rounded-none relative overflow-hidden border border-outline flex flex-col justify-center min-h-[460px]"
           >
-            <AnimatePresence mode="wait">
-              {status === 'success' ? (
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  className="text-center py-10 space-y-5 flex flex-col items-center"
+            {/* Corner Indicators */}
+            <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none">
+              <div className="absolute top-4 left-4 w-2 h-px bg-primary/20" />
+              <div className="absolute top-4 left-4 h-2 w-px bg-primary/20" />
+            </div>
+            <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
+              <div className="absolute top-4 right-4 w-2 h-px bg-primary/20" />
+              <div className="absolute top-4 right-4 h-2 w-px bg-primary/20" />
+            </div>
+
+            <h3 className="text-lg font-bold tracking-tight text-white mb-6 uppercase">
+              Send Inquiry
+            </h3>
+
+            <form onSubmit={handleSubmit} className="space-y-8 font-sans">
+              <div className="relative group">
+                <input
+                  type="text"
+                  name="name"
+                  id="form-name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder=" "
+                  className="w-full bg-transparent border-b border-outline py-3 text-sm text-white placeholder-transparent focus:outline-none focus:border-primary transition-colors duration-300"
+                />
+                <label
+                  htmlFor="form-name"
+                  className="absolute left-0 top-3 text-xs tracking-wider text-white/40 uppercase pointer-events-none transition-all duration-300 group-focus-within:-top-4 group-focus-within:text-[9px] group-focus-within:text-primary peer-placeholder-shown:top-3 peer-placeholder-shown:text-xs"
+                  style={{
+                    transformOrigin: '0% 0%',
+                    transform: formData.name ? 'translateY(-28px) scale(0.75)' : 'none',
+                    color: formData.name ? 'var(--primary)' : 'inherit'
+                  }}
                 >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                  >
-                    <CheckCircle2 size={56} className="text-primary" />
-                  </motion.div>
-                  <h4 className="text-2xl font-bold text-white tracking-tight uppercase">MESSAGE SENT SUCCESSFULLY</h4>
-                  <p className="text-on-surface-variant text-sm leading-relaxed max-w-sm font-light">
-                    Terima kasih! Pesan Anda telah berhasil dikirim dan diteruskan langsung ke email pribadi saya. Saya akan merespons secepat mungkin.
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setStatus('idle')}
-                    className="mt-6 px-6 py-2.5 border border-outline rounded-none text-xs font-sans font-semibold text-primary/60 hover:text-white hover:border-primary transition-all cursor-pointer uppercase tracking-[0.15em]"
-                  >
-                    Send Another Message
-                  </motion.button>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="form"
-                  onSubmit={handleSubmit}
-                  className="space-y-8 pt-4"
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  Your Name
+                </label>
+              </div>
+
+              <div className="relative group">
+                <input
+                  type="email"
+                  name="email"
+                  id="form-email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder=" "
+                  className="w-full bg-transparent border-b border-outline peer py-3 text-sm text-white placeholder-transparent focus:outline-none focus:border-primary transition-colors duration-300"
+                />
+                <label
+                  htmlFor="form-email"
+                  className="absolute left-0 top-3 text-xs tracking-wider text-white/40 uppercase pointer-events-none transition-all duration-300 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-primary peer-placeholder-shown:top-3 peer-placeholder-shown:text-xs"
+                  style={{
+                    transformOrigin: '0% 0%',
+                    transform: formData.email ? 'translateY(-28px) scale(0.75)' : 'none',
+                    color: formData.email ? 'var(--primary)' : 'inherit'
+                  }}
                 >
-                  {status === 'error' && (
+                  Your Email
+                </label>
+              </div>
+
+              <div className="relative group">
+                <textarea
+                  name="message"
+                  id="form-message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows="4"
+                  placeholder=" "
+                  className="w-full bg-transparent border-b border-outline peer py-3 text-sm text-white placeholder-transparent focus:outline-none focus:border-primary transition-colors duration-300 resize-none"
+                />
+                <label
+                  htmlFor="form-message"
+                  className="absolute left-0 top-3 text-xs tracking-wider text-white/40 uppercase pointer-events-none transition-all duration-300 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-primary peer-placeholder-shown:top-3 peer-placeholder-shown:text-xs"
+                  style={{
+                    transformOrigin: '0% 0%',
+                    transform: formData.message ? 'translateY(-28px) scale(0.75)' : 'none',
+                    color: formData.message ? 'var(--primary)' : 'inherit'
+                  }}
+                >
+                  Message
+                </label>
+              </div>
+
+              {/* Action row with alerts */}
+              <div className="flex flex-col gap-4 pt-4">
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="btn-primary w-full group py-3 text-[11px] font-sans font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2 cursor-pointer border-none"
+                >
+                  {status === 'submitting' ? (
+                    <>
+                      <Loader2 size={14} className="animate-spin" />
+                      SENDING...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={12} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      SEND INQUIRY
+                    </>
+                  )}
+                </button>
+
+                {/* Status Telemetry Output */}
+                <AnimatePresence mode="wait">
+                  {status === 'success' && (
                     <motion.div
-                      initial={{ opacity: 0, y: -10 }}
+                      initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="p-4 bg-red-950/30 border border-red-500/20 rounded-none flex items-center gap-3 text-red-400 text-sm"
+                      exit={{ opacity: 0, y: -8 }}
+                      className="p-3 border border-primary/20 bg-primary/[0.02] flex items-center gap-3 text-primary text-[10px] tracking-wider uppercase font-semibold select-none"
                     >
-                      <AlertCircle size={18} className="flex-shrink-0" />
-                      <span>{errorMsg}</span>
+                      <CheckCircle2 size={14} className="shrink-0" />
+                      <span>INQUIRY SUCCESS // MESSAGE RECEIVED</span>
                     </motion.div>
                   )}
 
-                  <div className="relative">
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your Name"
-                      disabled={status === 'submitting'}
-                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-sans text-white disabled:opacity-50"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Your Email"
-                      disabled={status === 'submitting'}
-                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-sans text-white disabled:opacity-50"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <textarea
-                      name="message"
-                      rows="4"
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell me about your project"
-                      disabled={status === 'submitting'}
-                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-sans text-white resize-none disabled:opacity-50"
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    className="w-full btn-primary group rounded-none text-[11px] font-sans font-bold tracking-[0.15em]"
-                  >
-                    {status === 'submitting' ? (
-                      <>
-                        <Loader2 className="animate-spin mr-2 text-black" size={16} />
-                        <span>SENDING...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="mr-2 text-black">SEND INQUIRY</span>
-                        <Send size={15} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-black" />
-                      </>
-                    )}
-                  </button>
-                </motion.form>
-              )}
-            </AnimatePresence>
+                  {status === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      className="p-3 border border-red-500/20 bg-red-500/[0.02] flex items-center gap-3 text-red-400 text-[10px] tracking-wider uppercase font-semibold select-none"
+                    >
+                      <AlertCircle size={14} className="shrink-0" />
+                      <span>SYSTEM ERROR // {errorMsg}</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </form>
           </motion.div>
+
         </div>
       </div>
     </section>
