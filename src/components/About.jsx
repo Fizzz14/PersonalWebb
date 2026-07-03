@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { User, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 import profileImg from '../assets/hapis1.jpeg';
 
@@ -11,9 +11,6 @@ const cards = [
 ];
 
 const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-
   return (
     <section id="about" className="py-32 bg-transparent relative">
       <div className="section-container">
@@ -23,15 +20,15 @@ const About = () => {
           <div className="premium-divider mb-3">
             <span className="tech-label">[ PROFILE ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-            About <span className="text-primary">Me</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+            STUDIO <span className="text-primary">PROFILE</span>
           </h2>
         </div>
 
         <motion.div
-          ref={ref}
           initial={{ opacity: 0, y: 36 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col md:flex-row gap-16 items-start"
         >
@@ -41,8 +38,8 @@ const About = () => {
               <div className="corner-inner" />
 
               {/* Tag */}
-              <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/70 border border-outline px-2.5 py-1 text-[8px] font-mono tracking-widest text-primary uppercase">
-                IMG_0823 // ENCRYPTED
+              <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/70 border border-outline px-2.5 py-1 text-[8px] font-sans font-semibold tracking-widest text-primary uppercase">
+                PORTRAIT // BOGOR, INDONESIA
               </div>
 
               {/* Frame */}
@@ -57,8 +54,8 @@ const About = () => {
               </div>
 
               {/* Bottom ref tag */}
-              <div className="absolute -bottom-4 right-3 z-20 pointer-events-none font-mono text-[8px] tracking-widest text-primary/30">
-                REF_ID // 17-PPLG-WIKRAMA
+              <div className="absolute -bottom-4 right-3 z-20 pointer-events-none font-sans text-[8px] font-medium tracking-widest text-primary/30 uppercase">
+                STUDIO // DEVELOPER ARCHIVE
               </div>
             </div>
           </div>
@@ -69,8 +66,8 @@ const About = () => {
               <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
                 Muhammad Hafizh Rahmat
               </h3>
-              <p className="text-[10px] font-mono text-primary tracking-widest mt-1.5 uppercase">
-                // Software & Game Dev Student
+              <p className="text-[10px] font-sans font-semibold text-primary tracking-[0.18em] mt-1.5 uppercase">
+                Software & Mobile Dev Student
               </p>
             </div>
 
@@ -82,7 +79,7 @@ const About = () => {
                 <span className="text-primary underline underline-offset-4 decoration-primary/45 font-medium">
                   SMK Wikrama Bogor
                 </span>
-                , tempat saya mengasah keahlian rekayasa perangkat lunak dan game development.
+                , tempat saya mengasah keahlian rekayasa perangkat lunak dan mobile development.
               </p>
               <p>
                 Meskipun berstatus siswa, saya telah melangkah lebih awal di dunia industri
@@ -102,7 +99,7 @@ const About = () => {
                     <Icon size={16} />
                   </div>
                   <div>
-                    <p className="text-[9px] font-mono text-primary/40 tracking-widest uppercase">{label}</p>
+                    <p className="text-[9px] font-sans font-semibold text-primary/40 tracking-[0.2em] uppercase">{label}</p>
                     <p className="text-sm font-medium text-on-surface-variant group-hover:text-white transition-colors mt-0.5">{value}</p>
                   </div>
                 </div>

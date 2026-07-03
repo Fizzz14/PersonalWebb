@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const messages = [
-  'Initializing systems...',
-  'Connecting to Wikrama Bogor network...',
-  'Loading projects and achievements...',
-  'Compiling developer personality...',
-  'Running software environment...',
-  'Ready!'
+  'Manifesting spatial concepts...',
+  'Structuring digital monoliths...',
+  'Curating selected archives...',
+  'Entering the void.'
 ];
 
 const Preloader = ({ onComplete }) => {
@@ -25,7 +23,7 @@ const Preloader = ({ onComplete }) => {
           setTimeout(() => {
             document.body.style.overflow = '';
             onComplete();
-          }, 600);
+          }, 800);
           return 100;
         }
         const remaining = 100 - prev;
@@ -41,7 +39,7 @@ const Preloader = ({ onComplete }) => {
   }, [onComplete]);
 
   useEffect(() => {
-    // Dynamic messages based on progress
+    // Progress-based messages
     const idx = Math.min(
       messages.length - 1,
       Math.floor((progress / 100) * messages.length)
@@ -56,70 +54,75 @@ const Preloader = ({ onComplete }) => {
         y: '-100vh',
         transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
       }}
-      className="fixed inset-0 z-[9999] flex flex-col justify-between p-8 md:p-16 select-none"
+      className="fixed inset-0 z-[9999] flex flex-col justify-between p-8 md:p-16 select-none bg-black rounded-none"
     >
-      {/* Top logo */}
-      <div className="flex justify-between items-center">
-        <div className="font-mono text-xs text-white/40 tracking-wider">
-          PORTFOLIO
-        </div>
-        <div className="font-mono text-xs text-white/40">
-          © {new Date().getFullYear()}
-        </div>
+      {/* Top Bar */}
+      <div className="flex justify-between items-center font-sans text-[10px] tracking-[0.2em] text-white/40 uppercase">
+        <div>PORTFOLIO ARCHIVE</div>
+        <div>© {new Date().getFullYear()}</div>
       </div>
 
       {/* Center content */}
-      <div className="max-w-xl w-full mx-auto flex flex-col justify-center items-start flex-1 py-12">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-8"
+      <div className="max-w-xl w-full mx-auto flex flex-col justify-center items-center flex-1 py-12">
+        {/* Monogram SVG Logo */}
+        <motion.div
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-6"
         >
-          Hafizh<span className="text-gray-500">Rahmat</span>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-primary">
+            <path d="M12 4L12 12L7 20" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M12 12L17 20" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <rect x="3" y="3" width="18" height="18" strokeWidth="1.5" strokeLinejoin="round" />
+          </svg>
+        </motion.div>
+
+        {/* Developer Name */}
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-lg md:text-xl font-bold tracking-[0.3em] text-white uppercase text-center mb-8 font-sans"
+        >
+          HAFIZH RAHMAT
         </motion.h1>
 
-        {/* Console Log */}
-        <div className="w-full font-mono text-sm mb-4 h-6 text-white/70 overflow-hidden">
+        {/* Loading Logs */}
+        <div className="w-full font-sans text-[11px] tracking-[0.15em] mb-4 h-6 text-primary/50 text-center overflow-hidden uppercase">
           <AnimatePresence mode="wait">
             <motion.div
               key={msgIndex}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="text-gray-400"
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25 }}
             >
-              &gt; {messages[msgIndex]}
+              {messages[msgIndex]}
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Progress Bar Container */}
-        <div className="w-full bg-white/5 border border-white/10 rounded-full h-[6px] overflow-hidden mb-2 relative">
+        {/* Progress % Countdown */}
+        <div className="w-full text-center font-sans text-[11px] tracking-[0.25em] text-white/40 mb-3 uppercase">
+          [ {progress.toString().padStart(3, '0')} / 100 ]
+        </div>
+
+        {/* Progress Bar (Thin & Sharp) */}
+        <div className="w-32 bg-outline h-[1px] relative overflow-hidden rounded-none">
           <motion.div
-            className="absolute left-0 top-0 bottom-0 bg-white"
+            className="absolute left-0 top-0 bottom-0 bg-primary rounded-none"
             initial={{ width: '0%' }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.1 }}
           />
         </div>
-
-        {/* Progress % */}
-        <div className="w-full flex justify-between font-mono text-xs text-white/40">
-          <span>STATUS: LOADING</span>
-          <span className="font-bold text-white">{progress}%</span>
-        </div>
       </div>
 
-      {/* Bottom status */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-2 border-t border-white/5 pt-4">
-        <div className="font-mono text-[10px] text-white/20">
-          LOC: CIDERUM, BOGOR, INDONESIA
-        </div>
-        <div className="font-mono text-[10px] text-white/20">
-          PPLG // WIKRAMA BOGOR
-        </div>
+      {/* Bottom Bar */}
+      <div className="flex flex-col md:flex-row justify-between items-center gap-2 border-t border-outline pt-4 font-sans text-[9px] tracking-[0.15em] text-white/20 uppercase">
+        <div>LOC: BOGOR, INDONESIA</div>
+        <div>ACADEMIC CONTEXT // PPLG</div>
       </div>
     </motion.div>
   );

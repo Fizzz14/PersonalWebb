@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const educationData = [
   {
@@ -7,7 +7,7 @@ const educationData = [
     title: 'PPLG SMK Wikrama Bogor',
     subtitle: 'Pengembangan Perangkat Lunak dan Gim',
     desc: 'Fokus mendalam pada rekayasa perangkat lunak modern (Web, Mobile & API architecture), pemodelan basis data relasional/NoSQL, perancangan algoritma, serta fundamental pengembangan game interaktif.',
-    code: 'SYS // WIKRAMA.EDU',
+    code: 'ACADEMIC CONTEXT // PPLG',
     active: true,
   },
   {
@@ -15,15 +15,12 @@ const educationData = [
     title: 'SMP Negeri 2 Ciawi',
     subtitle: 'Pendidikan Dasar',
     desc: 'Mengembangkan landasan logika matematika terapan, algoritma dasar, serta memperkokoh antusiasme awal di bidang teknologi informasi.',
-    code: 'SYS // CIAWI_2.EDU',
+    code: 'ACADEMIC CONTEXT // SMP',
     active: false,
   },
 ];
 
 const Education = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-
   return (
     <section id="education" className="py-32 bg-transparent relative">
       <div className="section-container">
@@ -31,15 +28,15 @@ const Education = () => {
         {/* Header */}
         <div className="mb-20">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ JOURNEY ]</span>
+            <span className="tech-label">[ ACADEMIC CHRONOLOGY ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-            Academic <span className="text-primary">Journey</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+            ACADEMIC <span className="text-primary">CHRONOLOGY</span>
           </h2>
         </div>
 
         {/* Timeline */}
-        <div ref={ref} className="relative max-w-4xl pl-6 md:pl-10 space-y-12">
+        <div className="relative max-w-4xl pl-6 md:pl-10 space-y-12">
           {/* Vertical line */}
           <div
             className="absolute left-0 top-0 bottom-0 w-px"
@@ -50,7 +47,8 @@ const Education = () => {
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -24 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.18 }}
               className="relative group animate-none"
             >
@@ -68,10 +66,10 @@ const Education = () => {
               )}
 
               {/* Card */}
-              <div className="premium-card rounded-none p-7 md:p-8 border border-outline">
+              <div className="premium-card rounded-none p-7 md:p-8 border border-outline bg-black">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-3 mb-4">
                   <div>
-                    <span className="text-[10px] font-mono text-primary/50 tracking-widest block mb-1.5">
+                    <span className="text-[10px] font-sans font-semibold text-primary/50 tracking-[0.15em] block mb-1.5">
                       {item.year}
                     </span>
                     <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-primary transition-colors leading-tight">
@@ -79,7 +77,7 @@ const Education = () => {
                     </h3>
                     <p className="text-sm text-on-surface-variant mt-1 font-light">{item.subtitle}</p>
                   </div>
-                  <span className="text-[9px] font-mono text-primary tracking-widest bg-white/[0.01] border border-outline px-2.5 py-1 rounded-none self-start shrink-0">
+                  <span className="text-[9px] font-sans font-semibold text-primary tracking-[0.15em] bg-white/[0.01] border border-outline px-2.5 py-1 rounded-none self-start shrink-0 uppercase">
                     {item.code}
                   </span>
                 </div>

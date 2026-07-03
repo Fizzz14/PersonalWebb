@@ -36,9 +36,16 @@ const Navbar = () => {
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base font-black tracking-[-0.05em] text-primary hover:text-white transition-colors select-none font-mono"
+            className="flex items-center gap-2.5 transition-colors select-none"
           >
-            λRCH
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-primary group-hover:stroke-white transition-colors duration-300">
+              <path d="M12 4L12 12L7 20" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 12L17 20" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <rect x="3" y="3" width="18" height="18" strokeWidth="1.5" strokeLinejoin="round"/>
+            </svg>
+            <span className="text-[11px] font-bold tracking-[0.25em] text-white">
+              ARCH
+            </span>
           </motion.div>
         </Link>
 
@@ -56,8 +63,8 @@ const Navbar = () => {
                 smooth
                 duration={500}
                 spy
-                activeClass="!text-primary border-b-2 border-primary pb-1"
-                className="text-[10px] font-mono text-on-surface-variant hover:text-primary cursor-pointer tracking-widest uppercase transition-colors duration-250 relative group select-none"
+                activeClass="!text-primary border-b border-primary pb-1"
+                className="text-[10px] font-sans font-medium text-on-surface-variant hover:text-primary cursor-pointer tracking-[0.2em] uppercase transition-colors duration-250 relative group select-none"
               >
                 {link.name}
               </Link>
@@ -71,7 +78,7 @@ const Navbar = () => {
             to="contact"
             smooth
             duration={500}
-            className="bg-primary text-black px-5 py-2 font-mono text-[9px] font-bold uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black cursor-pointer select-none text-center"
+            className="bg-primary text-black px-5 py-2 font-sans text-[10px] font-bold uppercase tracking-[0.15em] transition-all duration-300 hover:bg-white hover:text-black cursor-pointer select-none text-center"
           >
             Inquire
           </Link>
@@ -107,7 +114,7 @@ const Navbar = () => {
                   duration={500}
                   spy
                   onClick={() => setIsOpen(false)}
-                  className="text-xs font-mono text-on-surface-variant hover:text-primary cursor-pointer tracking-widest uppercase transition-colors"
+                  className="text-xs font-sans font-medium text-on-surface-variant hover:text-primary cursor-pointer tracking-[0.15em] uppercase transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -117,7 +124,7 @@ const Navbar = () => {
                 smooth
                 duration={500}
                 onClick={() => setIsOpen(false)}
-                className="bg-primary text-black text-center py-3 font-mono text-[10px] font-bold uppercase tracking-widest"
+                className="bg-primary text-black text-center py-3 font-sans text-[10px] font-bold uppercase tracking-[0.15em]"
               >
                 Inquire
               </Link>

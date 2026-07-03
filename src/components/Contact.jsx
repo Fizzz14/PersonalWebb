@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
 const WEB3FORMS_ACCESS_KEY = '03345376-fcea-4177-b8e0-9deb82c944ec';
@@ -27,9 +27,6 @@ const InstagramIcon = () => (
 );
 
 const Contact = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
@@ -87,21 +84,22 @@ const Contact = () => {
   return (
     <section id="contact" className="py-32 bg-transparent relative select-none">
       <div className="container mx-auto px-6 md:px-12 max-w-6xl">
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
           
           {/* Left Side: Info Telemetry */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 space-y-8"
           >
             <div>
               <div className="premium-divider mb-3">
-                <span className="tech-label">[ CONNECT ]</span>
+                <span className="tech-label">[ INQUIRIES ]</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-                INITIATE <span className="text-primary">COMMUNICATION.</span>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+                GET IN <span className="text-primary">TOUCH.</span>
               </h2>
             </div>
 
@@ -116,8 +114,8 @@ const Contact = () => {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-mono text-primary/40 tracking-wider uppercase">Direct Mail</p>
-                  <a href="mailto:Hafizhrahmat7@gmail.com" className="text-sm font-medium text-on-surface-variant hover:text-white transition-colors duration-300">
+                  <p className="text-[10px] font-sans font-semibold text-primary/40 tracking-[0.15em] uppercase">Direct Mail</p>
+                  <a href="mailto:Hafizhrahmat7@gmail.com" className="text-sm font-medium text-on-surface-variant hover:text-white transition-colors duration-300 font-sans">
                     Hafizhrahmat7@gmail.com
                   </a>
                 </div>
@@ -128,8 +126,8 @@ const Contact = () => {
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-mono text-primary/40 tracking-wider uppercase">Headquarters</p>
-                  <p className="text-sm font-medium text-on-surface-variant">Ciderum, Bogor, Jawa Barat</p>
+                  <p className="text-[10px] font-sans font-semibold text-primary/40 tracking-[0.15em] uppercase">Headquarters</p>
+                  <p className="text-sm font-medium text-on-surface-variant font-sans">Ciderum, Bogor, Jawa Barat</p>
                 </div>
               </div>
             </div>
@@ -155,19 +153,14 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Right Side: High-End Contact Terminal Panel */}
+          {/* Right Side: Contact Panel */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="lg:col-span-7 glass-card p-8 md:p-10 rounded-none relative overflow-hidden flex flex-col justify-center min-h-[460px] corner-mark"
+            className="lg:col-span-7 bg-black p-8 md:p-10 rounded-none relative overflow-hidden border border-outline flex flex-col justify-center min-h-[460px]"
           >
-            <div className="corner-inner" />
-
-            <div className="absolute top-5 right-6 z-20 pointer-events-none">
-              <span className="text-[9px] font-mono text-primary/30 tracking-widest">[ SYS // MSG_0x9A ]</span>
-            </div>
-
             <AnimatePresence mode="wait">
               {status === 'success' ? (
                 <motion.div
@@ -184,17 +177,17 @@ const Contact = () => {
                   >
                     <CheckCircle2 size={56} className="text-primary" />
                   </motion.div>
-                  <h4 className="text-2xl font-bold text-white tracking-tight">TRANSMISSION COMPLETE</h4>
+                  <h4 className="text-2xl font-bold text-white tracking-tight uppercase">MESSAGE SENT SUCCESSFULLY</h4>
                   <p className="text-on-surface-variant text-sm leading-relaxed max-w-sm font-light">
-                    Terima kasih! Pesan Anda telah berhasil ditransmisikan dan diteruskan langsung ke email pribadi saya. Saya akan merespons secepat mungkin.
+                    Terima kasih! Pesan Anda telah berhasil dikirim dan diteruskan langsung ke email pribadi saya. Saya akan merespons secepat mungkin.
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setStatus('idle')}
-                    className="mt-6 px-6 py-2.5 border border-outline rounded-none text-xs font-mono text-primary/60 hover:text-white hover:border-primary transition-all cursor-pointer"
+                    className="mt-6 px-6 py-2.5 border border-outline rounded-none text-xs font-sans font-semibold text-primary/60 hover:text-white hover:border-primary transition-all cursor-pointer uppercase tracking-[0.15em]"
                   >
-                    Transmit Another Message
+                    Send Another Message
                   </motion.button>
                 </motion.div>
               ) : (
@@ -223,9 +216,9 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Identity (Full Name)"
+                      placeholder="Your Name"
                       disabled={status === 'submitting'}
-                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-mono text-white disabled:opacity-50"
+                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-sans text-white disabled:opacity-50"
                     />
                   </div>
 
@@ -236,9 +229,9 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Communication Channel (Email Address)"
+                      placeholder="Your Email"
                       disabled={status === 'submitting'}
-                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-mono text-white disabled:opacity-50"
+                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-sans text-white disabled:opacity-50"
                     />
                   </div>
 
@@ -249,25 +242,25 @@ const Contact = () => {
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Message Protocol"
+                      placeholder="Tell me about your project"
                       disabled={status === 'submitting'}
-                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-mono text-white resize-none disabled:opacity-50"
+                      className="w-full bg-transparent border-b border-outline py-4 focus:border-primary focus:ring-0 text-sm outline-none transition-all placeholder:text-primary/30 font-sans text-white resize-none disabled:opacity-50"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="w-full btn-primary group rounded-none"
+                    className="w-full btn-primary group rounded-none text-[11px] font-sans font-bold tracking-[0.15em]"
                   >
                     {status === 'submitting' ? (
                       <>
                         <Loader2 className="animate-spin mr-2 text-black" size={16} />
-                        <span>TRANSMITTING_DATA...</span>
+                        <span>SENDING...</span>
                       </>
                     ) : (
                       <>
-                        <span className="mr-2 text-black">TRANSMIT DATA</span>
+                        <span className="mr-2 text-black">SEND INQUIRY</span>
                         <Send size={15} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-black" />
                       </>
                     )}

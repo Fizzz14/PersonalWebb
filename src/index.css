@@ -246,7 +246,7 @@
 }
 
 .tech-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 10px;
   letter-spacing: 0.25em;
   color: var(--primary);
@@ -265,7 +265,7 @@
   border: 1px solid var(--outline);
   background: rgba(255, 192, 0, 0.03);
   font-size: 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Hanken Grotesk', sans-serif;
   letter-spacing: 0.2em;
   color: var(--primary);
   text-transform: uppercase;

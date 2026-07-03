@@ -1,10 +1,9 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import TiltCard from './TiltCard';
 
 const GithubIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4" />
   </svg>
 );
@@ -14,6 +13,7 @@ import imgPOS    from '../assets/Screenshot 2026-05-18 190749.png';
 import imgAww    from '../assets/Screenshot 2026-05-18 190735.png';
 import imgHotel  from '../assets/Screenshot 2026-05-18 190659.png';
 import imgLokerku from '../assets/Screenshot 2026-06-03 141255.png';
+
 const projects = [
   {
     index: '01',
@@ -67,109 +67,205 @@ const projects = [
 ];
 
 const Projects = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-
   return (
-    <section id="projects" className="py-32 bg-transparent relative">
-      <div className="section-container">
+    <section id="projects" className="py-32 bg-transparent relative select-none">
+      {/* Inline styles for blueprint scanner animation */}
+      <style>{`
+        @keyframes scanline-sweep {
+          0% { left: 0%; opacity: 0.1; }
+          50% { opacity: 0.9; }
+          100% { left: 100%; opacity: 0.1; }
+        }
+        .group:hover .sweep-line {
+          animation: scanline-sweep 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+      `}</style>
 
+      <div className="section-container">
         {/* Header */}
         <div className="mb-20">
           <div className="premium-divider mb-3">
             <span className="tech-label">[ WORKS ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-            Project <span className="text-primary">Archive</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+            SELECTED <span className="text-primary">ARCHIVE</span>
           </h2>
         </div>
 
-        <div
-          ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {projects.map((item, i) => (
+        {/* Project Grid */}
+        <div className="space-y-12">
+          
+          {/* FEATURED PROJECT: Lokerku (Split Screen Layout) */}
+          {projects.filter(p => p.index === '01').map((item) => (
             <motion.div
-              key={i}
+              key={item.index}
               initial={{ opacity: 0, y: 36 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-              className="h-full"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full"
             >
-              <TiltCard className="group premium-card rounded-none overflow-hidden relative h-full flex flex-col corner-mark border border-outline hover:border-primary">
+              <TiltCard className="group premium-card rounded-none overflow-hidden relative flex flex-col md:flex-row border border-outline hover:border-primary/50 min-h-[420px] bg-black">
                 <div className="corner-inner" />
-
+                
                 {/* Index badge */}
-                <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/80 border border-outline px-2.5 py-1 text-[8px] font-mono tracking-widest text-primary uppercase">
-                  PRJ_{item.index} // {item.code}
+                <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/80 border border-outline px-2.5 py-1 text-[8px] font-sans font-bold tracking-[0.2em] text-primary uppercase">
+                  FEATURED ARCHIVE // LOKERKU.PLATFORM
                 </div>
 
-                {/* Image */}
-                <div className="aspect-[16/9] overflow-hidden relative bg-black">
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-black/50 group-hover:bg-black/15 transition-colors z-10 duration-600" />
-                  {/* Gradient bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
+                {/* Left Column: Image with Blueprint scanner */}
+                <div className="w-full md:w-7/12 relative bg-black aspect-video md:aspect-auto overflow-hidden">
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10 duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-102 transition-all duration-750"
                   />
+                  {/* Blueprint Grid Overlay */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
+                    style={{
+                      backgroundImage: 'linear-gradient(to right, rgba(255,192,0,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,192,0,0.12) 1px, transparent 1px)',
+                      backgroundSize: '24px 24px',
+                      backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                      mixBlendMode: 'screen'
+                    }}
+                  />
+                  {/* Scanline line */}
+                  <div className="absolute inset-y-0 w-[2px] bg-primary/80 shadow-[0_0_12px_#FFC000] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 sweep-line z-20" />
                 </div>
 
-                {/* Content */}
-                <div className="p-7 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm text-on-surface-variant leading-relaxed font-light flex-1 mb-5">
-                    {item.desc}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {item.tags.map((tag, ti) => (
-                      <span
-                        key={ti}
-                        className="px-2.5 py-1 text-[10px] font-mono bg-white/[0.01] border border-outline text-primary/60 group-hover:text-primary group-hover:border-primary/30 transition-all duration-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                {/* Right Column: Text content */}
+                <div className="w-full md:w-5/12 p-8 md:p-10 flex flex-col justify-between bg-black">
+                  <div>
+                    <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-primary/60 block mb-2 uppercase">
+                      CASE STUDY // SMART HARDWARE & WEB
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-black text-white mb-4 group-hover:text-primary transition-colors font-sans uppercase">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-on-surface-variant leading-relaxed font-light mb-6">
+                      {item.desc}
+                    </p>
+                    
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {item.tags.map((tag, ti) => (
+                        <span
+                          key={ti}
+                          className="px-2.5 py-1 text-[9px] font-sans font-semibold tracking-wider bg-white/[0.01] border border-outline text-primary/60 group-hover:text-primary group-hover:border-primary/30 transition-all duration-300 uppercase"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Links */}
-                  <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-outline">
-                    {item.links ? (
-                      item.links.map((link, linkIdx) => (
-                        <a
-                          key={linkIdx}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-[11px] font-mono text-primary/50 hover:text-primary transition-colors duration-300"
-                        >
-                          <GithubIcon />
-                          {link.label}
-                        </a>
-                      ))
-                    ) : (
+                  <div className="flex flex-wrap items-center gap-5 pt-5 border-t border-outline">
+                    {item.links.map((link, linkIdx) => (
                       <a
-                        href={item.github}
+                        key={linkIdx}
+                        href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[11px] font-mono text-primary/50 hover:text-primary transition-colors duration-300"
+                        className="flex items-center gap-2 text-[10px] font-sans font-semibold tracking-wider text-primary/50 hover:text-primary transition-colors duration-300 uppercase"
                       >
                         <GithubIcon />
-                        SOURCE_CODE
+                        {link.label.replace('_REPO', '')}
                       </a>
-                    )}
+                    ))}
                   </div>
                 </div>
               </TiltCard>
             </motion.div>
           ))}
+
+          {/* OTHER PROJECTS (Grid layout) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projects.filter(p => p.index !== '01').map((item, i) => (
+              <motion.div
+                key={item.index}
+                initial={{ opacity: 0, y: 36 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.12 }}
+                className="h-full"
+              >
+                <TiltCard className="group premium-card rounded-none overflow-hidden relative h-full flex flex-col corner-mark border border-outline hover:border-primary/50 bg-black">
+                  <div className="corner-inner" />
+
+                  {/* Index badge */}
+                  <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/80 border border-outline px-2.5 py-1 text-[8px] font-sans font-bold tracking-[0.2em] text-primary uppercase">
+                    ARCHIVE // 0{item.index}
+                  </div>
+
+                  {/* Image with Blueprint scanner */}
+                  <div className="aspect-[16/9] overflow-hidden relative bg-black">
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10 duration-500" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-102 transition-all duration-700"
+                    />
+                    {/* Blueprint Grid Overlay */}
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
+                      style={{
+                        backgroundImage: 'linear-gradient(to right, rgba(255,192,0,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,192,0,0.12) 1px, transparent 1px)',
+                        backgroundSize: '24px 24px',
+                        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                        mixBlendMode: 'screen'
+                      }}
+                    />
+                    {/* Scanline line */}
+                    <div className="absolute inset-y-0 w-[2px] bg-primary/80 shadow-[0_0_12px_#FFC000] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 sweep-line z-20" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-7 flex flex-col flex-1 justify-between bg-black">
+                    <div>
+                      <h3 className="text-xl font-black text-white mb-2 group-hover:text-primary transition-colors font-sans uppercase">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-sm text-on-surface-variant leading-relaxed font-light mb-6">
+                        {item.desc}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {item.tags.map((tag, ti) => (
+                          <span
+                            key={ti}
+                            className="px-2.5 py-1 text-[9px] font-sans font-semibold tracking-wider bg-white/[0.01] border border-outline text-primary/60 group-hover:text-primary group-hover:border-primary/30 transition-all duration-300 uppercase"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-outline">
+                      <a
+                        href={item.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[10px] font-sans font-semibold tracking-wider text-primary/50 hover:text-primary transition-colors duration-300 uppercase"
+                      >
+                        <GithubIcon />
+                        SOURCE
+                      </a>
+                    </div>
+                  </div>
+                </TiltCard>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

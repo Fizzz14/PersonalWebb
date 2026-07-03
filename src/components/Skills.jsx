@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Smartphone, Layout, Code2, Database, GitBranch, Cpu, Check, Server } from 'lucide-react';
 import TiltCard from './TiltCard';
+import TechMarquee from './TechMarquee';
 
 const hardSkills = [
   {
@@ -86,34 +87,10 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="skills" className="py-32 bg-transparent relative overflow-hidden">
-      {/* Skill Rail (Core System) Marquee */}
-      <div className="py-8 bg-surface-container-low border-y border-outline overflow-hidden relative mb-20 w-screen left-1/2 -translate-x-1/2">
-        <div className="skill-rail-track flex whitespace-nowrap gap-12 items-center">
-          {/* Group 1 */}
-          <div className="flex gap-12 items-center">
-            <span className="font-headline-md text-headline-md uppercase tracking-tighter text-outline opacity-50 font-bold">PARAMETRIC LOGIC</span>
-            <span className="w-2 h-2 bg-primary rotate-45"></span>
-            <span className="font-headline-md text-headline-md uppercase tracking-tighter text-primary font-bold">SPATIAL ARCHITECTURE</span>
-            <span className="w-2 h-2 bg-primary rotate-45"></span>
-            <span className="font-headline-md text-headline-md uppercase tracking-tighter text-outline opacity-50 font-bold">FULL-STACK SYSTEMS</span>
-            <span className="w-2 h-2 bg-primary rotate-45"></span>
-            <span className="font-headline-md text-headline-md uppercase tracking-tighter text-primary font-bold">IMMUTABLE DATA</span>
-            <span className="w-2 h-2 bg-primary rotate-45"></span>
-          </div>
-          {/* Group 2 (repeated for seamless loop) */}
-          <div className="flex gap-12 items-center">
-            <span className="font-headline-md text-headline-md uppercase tracking-tighter text-outline opacity-50 font-bold">PARAMETRIC LOGIC</span>
-            <span className="w-2 h-2 bg-primary rotate-45"></span>
-            <span className="font-headline-md text-headline-md uppercase tracking-tighter text-primary font-bold">SPATIAL ARCHITECTURE</span>
-            <span className="w-2 h-2 bg-primary rotate-45"></span>
-            <span className="font-headline-md text-headline-md uppercase tracking-tighter text-outline opacity-50 font-bold">FULL-STACK SYSTEMS</span>
-            <span className="w-2 h-2 bg-primary rotate-45"></span>
-            <span className="font-headline-md text-headline-md uppercase tracking-tighter text-primary font-bold">IMMUTABLE DATA</span>
-            <span className="w-2 h-2 bg-primary rotate-45"></span>
-          </div>
-        </div>
-      </div>
+    <section id="skills" className="py-32 bg-transparent relative overflow-hidden select-none">
+      
+      {/* Infinite technology ribbon marquee */}
+      <TechMarquee />
 
       <div className="section-container">
         {/* Header */}
@@ -121,8 +98,8 @@ const Skills = () => {
           <div className="premium-divider mb-3">
             <span className="tech-label">[ EXPERTISE ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-            Core <span className="text-primary">Architecture</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+            CORE <span className="text-primary">ARCHITECTURE</span>
           </h2>
         </div>
 
@@ -137,7 +114,7 @@ const Skills = () => {
           >
             {hardSkills.map((skill, i) => (
               <motion.div key={i} variants={fadeUp} className="h-full">
-                <TiltCard className="h-full skew-grid-item bg-surface-container rounded-none p-6 group cursor-default flex flex-col justify-between">
+                <TiltCard className="h-full skew-grid-item bg-black rounded-none p-6 group cursor-default flex flex-col justify-between border border-outline hover:border-primary/50">
                   <div>
                     {/* Header Card */}
                     <div className="flex items-start justify-between gap-4 mb-5">
@@ -146,24 +123,24 @@ const Skills = () => {
                           {skill.icon}
                         </div>
                         <div>
-                          <p className="text-sm font-semibold text-white group-hover:text-primary transition-colors">
+                          <p className="text-sm font-semibold text-white group-hover:text-primary transition-colors font-sans">
                             {skill.name}
                           </p>
-                          <p className="text-[9px] font-mono text-primary/45 tracking-widest mt-0.5">
+                          <p className="text-[9px] font-sans font-semibold text-primary/45 tracking-[0.15em] mt-0.5">
                             {skill.code}
                           </p>
                         </div>
                       </div>
                       
                       {/* Status indicator */}
-                      <div className="flex items-center gap-1.5 bg-white/[0.01] border border-outline px-2.5 py-1 text-[8px] font-mono tracking-wider text-primary group-hover:text-white group-hover:border-primary transition-all duration-300">
+                      <div className="flex items-center gap-1.5 bg-white/[0.01] border border-outline px-2.5 py-1 text-[8px] font-sans font-bold tracking-[0.15em] text-primary group-hover:text-white group-hover:border-primary transition-all duration-300 uppercase">
                         <span className="w-1.5 h-1.5 bg-primary inline-block rotate-45 group-hover:glow-active-dot" />
                         {skill.status}
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-xs text-on-surface-variant group-hover:text-white leading-relaxed font-light transition-colors duration-300 mb-6">
+                    <p className="text-xs text-on-surface-variant group-hover:text-white leading-relaxed font-light transition-colors duration-300 mb-6 font-sans">
                       {skill.description}
                     </p>
                   </div>
@@ -173,7 +150,7 @@ const Skills = () => {
                     {skill.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="text-[9px] font-mono px-2 py-0.5 rounded-none bg-white/[0.01] border border-outline text-primary/60 group-hover:text-primary group-hover:bg-primary/5 group-hover:border-primary/30 transition-all duration-300"
+                        className="text-[9px] font-sans font-semibold px-2 py-0.5 rounded-none bg-white/[0.01] border border-outline text-primary/60 group-hover:text-primary group-hover:bg-primary/5 group-hover:border-primary/30 transition-all duration-300 uppercase tracking-wider"
                       >
                         {tag}
                       </span>
@@ -191,12 +168,12 @@ const Skills = () => {
             animate={isInView ? 'visible' : 'hidden'}
             className="lg:col-span-4 h-full"
           >
-            <TiltCard className="glass-card rounded-none p-7 corner-mark h-full flex flex-col justify-center">
+            <TiltCard className="glass-card rounded-none p-7 bg-black corner-mark h-full flex flex-col justify-center border border-outline hover:border-primary/50">
               <div className="corner-inner" />
 
-              <div className="mb-7 flex items-center justify-between">
-                <h4 className="text-base font-bold tracking-tight text-white">Core Strengths</h4>
-                <span className="text-[8px] font-mono text-primary tracking-widest">[ ENG // 0xCC ]</span>
+              <div className="mb-7 flex items-center justify-between border-b border-outline pb-4">
+                <h4 className="text-base font-black tracking-tight text-white uppercase font-sans">Core Strengths</h4>
+                <span className="text-[9px] font-sans font-bold text-primary/40 tracking-[0.15em] uppercase">[ STRENGTHS ]</span>
               </div>
 
               <div className="space-y-5">
@@ -209,7 +186,7 @@ const Skills = () => {
                     <div className="shrink-0 p-1 rounded-none bg-white/[0.01] border border-outline text-primary/40 group-hover:text-primary group-hover:border-primary group-hover:bg-white/[0.04] transition-all duration-300">
                       <Check size={10} />
                     </div>
-                    <span className="text-sm text-on-surface-variant font-light group-hover:text-white transition-colors duration-300">
+                    <span className="text-sm text-on-surface-variant font-light group-hover:text-white transition-colors duration-300 font-sans">
                       {skill}
                     </span>
                   </motion.div>

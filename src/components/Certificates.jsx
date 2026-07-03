@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import TiltCard from './TiltCard';
 
@@ -30,10 +30,18 @@ const certificates = [
   { title: 'Data Analysis Fundamental',            issuer: 'MySkill',                               date: '04 Agu 2025',       pdf: pdfDataAnalysis, image: certImg7 },
 ];
 
-const Certificates = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+const stats = [
+  { value: '40+', label: 'Projects Built' },
+  { value: '100%', label: 'Code Integrity' },
+  { value: '10+', label: 'Core Technologies' },
+  { value: '17', label: 'Years of Velocity' },
+  { value: '4K+', label: 'Commits Made' },
+  { value: '24/7', label: 'Automated Deployments' },
+  { value: '100%', label: 'Custom Architecture' },
+  { value: '0', label: 'Compromise on Quality' }
+];
 
+const Certificates = () => {
   return (
     <section id="certificates" className="py-32 bg-transparent relative">
       <div className="section-container">
@@ -43,13 +51,30 @@ const Certificates = () => {
           <div className="premium-divider mb-3">
             <span className="tech-label">[ ACHIEVEMENTS ]</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white">
-            System <span className="text-primary">Recognition</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
+            SYSTEM <span className="text-primary">RECOGNITION</span>
           </h2>
         </div>
 
+        {/* 2x4 Metric Capabilities Dashboard Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 border-l border-t border-outline mb-16 select-none bg-black">
+          {stats.map((stat, idx) => (
+            <div 
+              key={idx} 
+              className="border-r border-b border-outline p-6 md:p-8 flex flex-col justify-between hover:bg-white/[0.01] transition-colors duration-300"
+            >
+              <span className="text-3xl md:text-4xl font-black text-primary tracking-tight font-sans">
+                {stat.value}
+              </span>
+              <span className="text-[10px] font-bold tracking-[0.18em] text-white/40 uppercase mt-2.5 font-sans leading-tight">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Certificates Grid */}
         <div
-          ref={ref}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {certificates.map((cert, i) => (
@@ -59,7 +84,8 @@ const Certificates = () => {
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 28 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
               className="block h-full"
             >
@@ -84,12 +110,12 @@ const Certificates = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 flex flex-col flex-1">
-                  <h4 className="text-sm font-semibold text-white mb-1.5 leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                <div className="p-5 flex flex-col flex-1 bg-black">
+                  <h4 className="text-sm font-semibold text-white mb-1.5 leading-snug group-hover:text-primary transition-colors line-clamp-2 uppercase font-sans">
                     {cert.title}
                   </h4>
-                  <p className="text-[11px] text-on-surface-variant mb-1">{cert.issuer}</p>
-                  <p className="text-[10px] font-mono text-primary/60 tracking-widest mt-auto pt-2 border-t border-outline">
+                  <p className="text-[11px] text-on-surface-variant mb-1 uppercase font-sans font-medium">{cert.issuer}</p>
+                  <p className="text-[10px] font-sans font-semibold text-primary/60 tracking-[0.15em] mt-auto pt-2 border-t border-outline uppercase">
                     {cert.date}
                   </p>
                 </div>
