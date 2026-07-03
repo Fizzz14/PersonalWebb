@@ -84,7 +84,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-32 bg-black border-t border-outline relative select-none">
       <div className="section-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        
+
         {/* Left Column: Pinned Header */}
         <div className="lg:col-span-3 lg:sticky lg:top-32 self-start">
           <div className="premium-divider mb-3">
@@ -98,7 +98,7 @@ const Contact = () => {
 
         {/* Right Column: Scrollable Grid */}
         <div className="lg:col-span-9 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Info Telemetry */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -149,7 +149,7 @@ const Contact = () => {
                   <GithubIcon />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/muhammad-hafizh-rahmat-774026315"
+                  href="https://www.linkedin.com/in/muhammad-hafizh-rahmat/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-outline bg-white/[0.01] text-white/50 hover:text-primary hover:border-primary/45 transition-all duration-300"
@@ -157,7 +157,7 @@ const Contact = () => {
                   <LinkedinIcon />
                 </a>
                 <a
-                  href="https://www.instagram.com/hapisssss.14"
+                  href="https://www.instagram.com/_hafizzhh/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 border border-outline bg-white/[0.01] text-white/50 hover:text-primary hover:border-primary/45 transition-all duration-300"
