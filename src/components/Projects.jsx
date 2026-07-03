@@ -122,7 +122,7 @@ const Projects = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-102 transition-all duration-750"
+                    className="w-full h-full object-cover object-left grayscale group-hover:grayscale-0 transform group-hover:scale-102 transition-all duration-750"
                   />
                   {/* Blueprint Grid Overlay */}
                   <div 
@@ -210,7 +210,7 @@ const Projects = () => {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-102 transition-all duration-700"
+                      className="w-full h-full object-cover object-left grayscale group-hover:grayscale-0 transform group-hover:scale-102 transition-all duration-700"
                     />
                     {/* Blueprint Grid Overlay */}
                     <div 
