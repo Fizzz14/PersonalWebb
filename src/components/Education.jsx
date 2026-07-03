@@ -6,7 +6,7 @@ const educationData = [
     year: '2024 — Sekarang',
     title: 'PPLG SMK Wikrama Bogor',
     subtitle: 'Pengembangan Perangkat Lunak dan Gim',
-    desc: 'Fokus mendalam pada rekayasa perangkat lunak modern (Web, Mobile & API architecture), pemodelan basis data relasional/NoSQL, perancangan algoritma, serta fundamental pengembangan game interaktif.',
+    desc: 'Fokus mendalam pada rekayasa perangkat lunak modern (Web, Mobile & API architecture), pemodelan basis data relasional/NoSQL, perancangan algoritma, serta pengembangan aplikasi mobile berkinerja tinggi.',
     code: 'ACADEMIC CONTEXT // PPLG',
     active: true,
   },

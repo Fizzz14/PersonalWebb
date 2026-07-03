@@ -22,7 +22,7 @@ const Footer = () => {
               <rect x="3" y="3" width="18" height="18" strokeWidth="1.5" strokeLinejoin="round"/>
             </svg>
             <span className="text-[10px] font-sans font-bold text-primary/60 tracking-[0.25em] uppercase">
-              Software & Game Dev Student
+              Software & Mobile Dev Student
             </span>
           </div>
 
