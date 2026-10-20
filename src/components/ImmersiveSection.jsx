@@ -44,14 +44,13 @@ const ImmersiveSection = () => {
           className="relative z-10 text-center px-6 max-w-3xl mx-auto flex flex-col items-center select-none"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 border border-primary/20 bg-primary/[0.01] text-[10px] font-sans font-semibold tracking-[0.25em] text-primary uppercase mb-6">
-            DESIGN DIRECTIVE
+            DEVELOPMENT PHILOSOPHY
           </div>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white uppercase mb-6 font-sans">
-            STRUCTURAL INTEGRITY
+            CRAFTING PURPOSEFUL SOFTWARE
           </h2>
           <p className="text-sm md:text-base text-on-surface-variant font-light leading-relaxed tracking-wide text-center max-w-xl">
-            "In an era of fleeting aesthetics, we pursue the immutable. Our code is not merely space,
-            it is a manifestation of mathematical certainty and structural dominance."
+            "Good software is simple, dependable, and built to solve real problems. From intuitive mobile interfaces to scalable backends, every line of code is written with intent and precision."
           </p>
         </motion.div>
       </div>

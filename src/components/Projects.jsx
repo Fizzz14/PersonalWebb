@@ -69,27 +69,15 @@ const projects = [
 const Projects = () => {
   return (
     <section id="projects" className="py-32 bg-black border-y border-outline relative select-none">
-      {/* Inline styles for blueprint scanner animation */}
-      <style>{`
-        @keyframes scanline-sweep {
-          0% { left: 0%; opacity: 0.1; }
-          50% { opacity: 0.9; }
-          100% { left: 100%; opacity: 0.1; }
-        }
-        .group:hover .sweep-line {
-          animation: scanline-sweep 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-        }
-      `}</style>
-
       <div className="section-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         {/* Left Column: Pinned Header */}
         <div className="lg:col-span-3 lg:sticky lg:top-32 self-start">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ WORKS ]</span>
+            <span className="tech-label">PORTFOLIO</span>
           </div>
           <h2 className="text-3xl font-black tracking-tight text-white uppercase leading-none font-sans">
-            SELECTED <span className="text-primary">ARCHIVE</span>
+            FEATURED <span className="text-primary">PROJECTS</span>
           </h2>
           <div className="h-[1px] w-12 bg-primary/30 mt-6 hidden lg:block" />
         </div>
@@ -108,41 +96,25 @@ const Projects = () => {
               className="w-full"
             >
               <TiltCard className="group premium-card rounded-none overflow-hidden relative flex flex-col md:flex-row border border-outline hover:border-primary/50 min-h-[420px] bg-black">
-                <div className="corner-inner" />
-                
                 {/* Index badge */}
-                <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/80 border border-outline px-2.5 py-1 text-[8px] font-sans font-bold tracking-[0.2em] text-primary uppercase">
-                  FEATURED ARCHIVE // LOKERKU.PLATFORM
+                <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/80 border border-outline px-3 py-1 text-[9px] font-sans font-semibold tracking-wider text-primary uppercase">
+                  Featured Project
                 </div>
 
-                {/* Left Column: Image with Blueprint scanner */}
-                <div className="w-full md:w-7/12 relative bg-black aspect-video md:aspect-auto overflow-hidden">
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10 duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
+                {/* Left Column: Clean Image Display */}
+                <div className="w-full md:w-7/12 relative bg-neutral-950 aspect-video md:aspect-auto overflow-hidden flex items-center justify-center p-4">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-contain grayscale group-hover:grayscale-0 transform group-hover:scale-102 transition-all duration-750"
                   />
-                  {/* Blueprint Grid Overlay */}
-                  <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
-                    style={{
-                      backgroundImage: 'linear-gradient(to right, rgba(255,192,0,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,192,0,0.12) 1px, transparent 1px)',
-                      backgroundSize: '24px 24px',
-                      backgroundColor: 'rgba(0, 0, 0, 0.85)',
-                      mixBlendMode: 'screen'
-                    }}
-                  />
-                  {/* Scanline line */}
-                  <div className="absolute inset-y-0 w-[2px] bg-primary/80 shadow-[0_0_12px_#FFC000] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 sweep-line z-20" />
                 </div>
 
                 {/* Right Column: Text content */}
                 <div className="w-full md:w-5/12 p-8 md:p-10 flex flex-col justify-between bg-black">
                   <div>
-                    <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-primary/60 block mb-2 uppercase">
-                      CASE STUDY // SMART HARDWARE & WEB
+                    <span className="text-[10px] font-sans font-semibold tracking-wider text-primary/70 block mb-2 uppercase">
+                      Smart Locker & Payment Platform
                     </span>
                     <h3 className="text-2xl md:text-3xl font-black text-white mb-4 group-hover:text-primary transition-colors font-sans uppercase">
                       {item.title}
@@ -195,35 +167,14 @@ const Projects = () => {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.12 }}
                 className="h-full"
               >
-                <TiltCard className="group premium-card rounded-none overflow-hidden relative h-full flex flex-col corner-mark border border-outline hover:border-primary/50 bg-black">
-                  <div className="corner-inner" />
-
-                  {/* Index badge */}
-                  <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/80 border border-outline px-2.5 py-1 text-[8px] font-sans font-bold tracking-[0.2em] text-primary uppercase">
-                    ARCHIVE // 0{item.index}
-                  </div>
-
-                  {/* Image with Blueprint scanner */}
-                  <div className="aspect-[16/9] overflow-hidden relative bg-black">
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10 duration-500" />
-                    <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none" />
+                <TiltCard className="group premium-card rounded-none overflow-hidden relative h-full flex flex-col border border-outline hover:border-primary/50 bg-black">
+                  {/* Clean Image container without grids/scanlines */}
+                  <div className="aspect-[16/9] overflow-hidden relative bg-neutral-950 p-3 flex items-center justify-center">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-contain grayscale group-hover:grayscale-0 transform group-hover:scale-102 transition-all duration-700"
                     />
-                    {/* Blueprint Grid Overlay */}
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
-                      style={{
-                        backgroundImage: 'linear-gradient(to right, rgba(255,192,0,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,192,0,0.12) 1px, transparent 1px)',
-                        backgroundSize: '24px 24px',
-                        backgroundColor: 'rgba(0, 0, 0, 0.85)',
-                        mixBlendMode: 'screen'
-                      }}
-                    />
-                    {/* Scanline line */}
-                    <div className="absolute inset-y-0 w-[2px] bg-primary/80 shadow-[0_0_12px_#FFC000] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 sweep-line z-20" />
                   </div>
 
                   {/* Content */}

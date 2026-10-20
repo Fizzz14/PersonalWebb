@@ -18,10 +18,10 @@ const About = () => {
         {/* Left Column: Pinned Header */}
         <div className="lg:col-span-3 lg:sticky lg:top-32 self-start">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ PROFILE ]</span>
+            <span className="tech-label">ABOUT</span>
           </div>
           <h2 className="text-3xl font-black tracking-tight text-white uppercase leading-none font-sans">
-            STUDIO <span className="text-primary">PROFILE</span>
+            ABOUT <span className="text-primary">ME</span>
           </h2>
           <div className="h-[1px] w-12 bg-primary/30 mt-6 hidden lg:block" />
         </div>
@@ -37,14 +37,7 @@ const About = () => {
           >
             {/* Photo */}
             <div className="w-full md:w-5/12 flex justify-center shrink-0">
-              <div className="relative w-full max-w-[340px] aspect-square rounded-none corner-mark group">
-                <div className="corner-inner" />
-
-                {/* Tag */}
-                <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/70 border border-outline px-2.5 py-1 text-[8px] font-sans font-semibold tracking-widest text-primary uppercase">
-                  PORTRAIT // BOGOR, INDONESIA
-                </div>
-
+              <div className="relative w-full max-w-[340px] aspect-square rounded-none group">
                 {/* Frame */}
                 <div className="relative w-full h-full overflow-hidden border border-outline bg-neutral-900 shadow-[0_0_60px_-15px_rgba(0,0,0,1)]">
                   <img
@@ -52,13 +45,8 @@ const About = () => {
                     alt="Muhammad Hafizh Rahmat"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                </div>
-
-                {/* Bottom ref tag */}
-                <div className="absolute -bottom-4 right-3 z-20 pointer-events-none font-sans text-[8px] font-medium tracking-widest text-primary/30 uppercase">
-                  STUDIO // DEVELOPER ARCHIVE
+                  {/* Subtle Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
             </div>

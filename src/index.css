@@ -87,128 +87,8 @@
 }
 
 /* ============================================================
-   TECH GRID BACKGROUND
-   ============================================================ */
-.tech-grid {
-  background-image:
-    linear-gradient(to right, rgba(255,192,0,0.008) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,192,0,0.008) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-/* ============================================================
    TEXT GRADIENTS
    ============================================================ */
-.text-gradient {
-  background: linear-gradient(160deg, #ffffff 0%, #FFC000 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-secondary {
-  background: linear-gradient(160deg, #A1A1A1 0%, #555555 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ============================================================
-   GLASS CARD (Sharp)
-   ============================================================ */
-.glass-card {
-  background: linear-gradient(145deg, var(--glass-bg) 0%, rgba(255,255,255,0.002) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--outline);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1);
-  position: relative;
-}
-
-.glass-card:hover {
-  border-color: var(--primary);
-  box-shadow:
-    0 0 0 1px rgba(255,192,0,0.05),
-    0 24px 60px -20px rgba(0,0,0,0.95);
-  transform: translateY(-4px);
-}
-
-/* ============================================================
-   PREMIUM CARD (Sharp)
-   ============================================================ */
-.premium-card {
-  background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.001) 100%);
-  border: 1px solid var(--outline);
-  position: relative;
-  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-}
-
-.premium-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% -10%, rgba(255,192,0,0.05) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.45s ease;
-  pointer-events: none;
-}
-
-.premium-card:hover {
-  border-color: var(--primary);
-  box-shadow:
-    0 0 0 1px rgba(255,192,0,0.05),
-    0 20px 50px -15px rgba(0,0,0,0.98);
-  transform: translateY(-4px);
-}
-
-.premium-card:hover::before {
-  opacity: 1;
-}
-
-/* ============================================================
-   CORNER MARKS (Fine Lines)
-   ============================================================ */
-.corner-mark { position: relative; }
-
-.corner-mark::before, .corner-mark::after,
-.corner-mark > .corner-inner::before,
-.corner-mark > .corner-inner::after {
-  content: '';
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  pointer-events: none;
-  opacity: 0.15;
-  transition: opacity 0.4s ease, border-color 0.4s ease;
-}
-
-.corner-mark::before {
-  top: 0; left: 0;
-  border-top: 1px solid var(--primary);
-  border-left: 1px solid var(--primary);
-}
-.corner-mark::after {
-  top: 0; right: 0;
-  border-top: 1px solid var(--primary);
-  border-right: 1px solid var(--primary);
-}
-.corner-mark > .corner-inner::before {
-  bottom: 0; left: 0;
-  border-bottom: 1px solid var(--primary);
-  border-left: 1px solid var(--primary);
-}
-.corner-mark > .corner-inner::after {
-  bottom: 0; right: 0;
-  border-bottom: 1px solid var(--primary);
-  border-right: 1px solid var(--primary);
-}
-
-.corner-mark:hover::before, .corner-mark:hover::after,
-.corner-mark:hover > .corner-inner::before, .corner-mark:hover > .corner-inner::after {
-  opacity: 0.8;
-  border-color: var(--primary);
-}
 
 /* ============================================================
    GLOW DOT
@@ -353,25 +233,6 @@
   box-shadow: 0 0 8px rgba(255,192,0,0.8), 0 0 20px rgba(255,192,0,0.4);
 }
 
-/* ============================================================
-   SKEWED CARD TRANSFORMS (Stitch / Cathedral)
-   ============================================================ */
-.isometric-card-container {
-  perspective: 2000px;
-}
-
-.skew-grid-item {
-  transform: rotateX(25deg) rotateZ(-15deg) skewX(5deg);
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.4s, border-color 0.4s, box-shadow 0.4s;
-  border: 1px solid var(--outline);
-}
-
-.skew-grid-item:hover {
-  transform: rotateX(15deg) rotateZ(-5deg) skewX(0deg) translateZ(30px);
-  border-color: var(--primary);
-  background-color: #100d05; /* Deep warm tint */
-  box-shadow: 0 0 25px rgba(255, 192, 0, 0.12);
-}
 
 /* ============================================================
    SKILL RAIL TRACK (Infinite Scrolling)

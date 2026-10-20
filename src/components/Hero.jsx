@@ -76,7 +76,7 @@ const Hero = () => {
       />
 
       <div className="section-container relative z-10 w-full flex flex-col items-center justify-center text-center py-28 max-w-4xl mx-auto select-none">
-        
+
         {/* Status Pill Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -84,25 +84,21 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-8"
         >
-          <span className="inline-flex items-center gap-2.5 px-4 py-2 border border-primary/30 bg-primary/[0.02] text-[10px] font-sans font-semibold tracking-[0.25em] text-primary uppercase">
-            <span
-              className="w-1.5 h-1.5 bg-primary inline-block rotate-45"
-              style={{ boxShadow: '0 0 6px rgba(255,192,0,0.8)' }}
-            />
-            NODE // FRONT DESIGN
-          </span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 border border-primary/25 bg-primary/[0.04] text-[10px] font-sans font-semibold tracking-[0.2em] text-primary uppercase">
+            SOFTWARE & MOBILE DEVELOPER
+          </div>
         </motion.div>
 
         {/* Headline */}
         <h1 className="text-[clamp(2.5rem,7.5vw,5.5rem)] font-black leading-[0.95] tracking-tight mb-8 uppercase text-center w-full">
           <div className="overflow-hidden py-1.5">
-            <MaskReveal text="ARCHITECTING" className="text-white" delay={0.15} />
+            <MaskReveal text="SOFTWARE" className="text-white" delay={0.15} />
           </div>
           <div className="overflow-hidden py-1.5">
-            <MaskReveal text="THE" className="text-primary italic font-light" delay={0.4} />
+            <MaskReveal text="& MOBILE" className="text-primary italic font-light" delay={0.4} />
           </div>
           <div className="overflow-hidden py-1.5">
-            <MaskReveal text="INVISIBLE" className="text-white" delay={0.55} />
+            <MaskReveal text="DEVELOPER" className="text-white" delay={0.55} />
           </div>
         </h1>
 
@@ -113,8 +109,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
         >
-          We define the boundaries between structural integrity and precision. 
-          Software visualization at the highest level of fidelity.
+          Siswa PPLG <span className="text-[#FFC000] font-medium">SMK Wikrama Bogor</span> yang berfokus pada rekayasa aplikasi mobile, antarmuka web modern, dan arsitektur backend yang andal.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -126,7 +121,7 @@ const Hero = () => {
         >
           <Link to="projects" smooth duration={700} offset={-60} className="w-full sm:w-auto">
             <button className="btn-primary group w-full sm:w-auto px-8 py-3.5 text-[11px] font-sans tracking-[0.15em]">
-              EXPLORE ARCHIVE
+              LIHAT PROYEK
               <ArrowRight
                 size={14}
                 className="transform group-hover:translate-x-1 transition-transform duration-300 ml-1 inline-block"
@@ -135,15 +130,11 @@ const Hero = () => {
           </Link>
           <Link to="contact" smooth duration={700} offset={-60} className="w-full sm:w-auto">
             <button className="btn-outline w-full sm:w-auto px-8 py-3.5 text-[11px] font-sans tracking-[0.15em] border-primary/50 text-primary hover:border-primary hover:bg-primary hover:text-black">
-              INITIATE INQUIRY
+              HUBUNGI SAYA
             </button>
           </Link>
         </motion.div>
       </div>
-
-      {/* Decorative architectural grid lines on sides */}
-      <div className="absolute left-10 top-0 bottom-0 w-px bg-outline/20 hidden md:block" />
-      <div className="absolute right-10 top-0 bottom-0 w-px bg-outline/20 hidden md:block" />
     </section>
   );
 };

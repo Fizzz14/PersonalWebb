@@ -13,7 +13,6 @@ import Certificates from './components/Certificates';
 import Contact      from './components/Contact';
 import Footer       from './components/Footer';
 import Preloader    from './components/Preloader';
-import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -23,12 +22,9 @@ function App() {
   return (
     <ReactLenis root options={{ lerp: 0.075, duration: 1.1, smoothTouch: false }}>
       {/* ── LAYER 1: Base black background ── */}
-      <div className="bg-black min-h-screen text-white font-sans relative tech-grid">
+      <div className="bg-black min-h-screen text-white font-sans relative">
 
-        {/* ── LAYER 2: Permanent noise/particle canvas ── */}
-        <ParticleBackground />
-
-        {/* ── LAYER 3: Scroll progress bar ── */}
+        {/* ── LAYER 2: Scroll progress bar ── */}
         <motion.div className="scroll-progress" style={{ scaleX }} />
 
         {/* ── LAYER 4: Dynamic content ── */}

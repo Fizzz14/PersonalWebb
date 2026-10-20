@@ -88,7 +88,7 @@ const Contact = () => {
         {/* Left Column: Pinned Header */}
         <div className="lg:col-span-3 lg:sticky lg:top-32 self-start">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ CONNECT ]</span>
+            <span className="tech-label">CONTACT</span>
           </div>
           <h2 className="text-3xl font-black tracking-tight text-white uppercase leading-none font-sans">
             GET IN <span className="text-primary">TOUCH</span>
@@ -99,7 +99,7 @@ const Contact = () => {
         {/* Right Column: Scrollable Grid */}
         <div className="lg:col-span-9 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-          {/* Info Telemetry */}
+          {/* Info Details */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -118,7 +118,7 @@ const Contact = () => {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-[9px] font-sans font-semibold text-primary/35 tracking-[0.25em] uppercase">E-Mail Address</p>
+                  <p className="text-[10px] font-sans font-semibold text-neutral-400 tracking-wider uppercase">Email</p>
                   <a href="mailto:hafizhrahmat7@gmail.com" className="text-sm font-semibold text-white hover:text-primary transition-colors">
                     hafizhrahmat7@gmail.com
                   </a>
@@ -130,7 +130,7 @@ const Contact = () => {
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[9px] font-sans font-semibold text-primary/35 tracking-[0.25em] uppercase">Current Base</p>
+                  <p className="text-[10px] font-sans font-semibold text-neutral-400 tracking-wider uppercase">Lokasi</p>
                   <p className="text-sm font-semibold text-white">Bogor, Indonesia</p>
                 </div>
               </div>
@@ -138,7 +138,7 @@ const Contact = () => {
 
             {/* Social Grid */}
             <div className="pt-6">
-              <p className="text-[9px] font-sans font-semibold text-primary/40 tracking-[0.25em] uppercase mb-4">SOCIAL DIRECTORY</p>
+              <p className="text-[10px] font-sans font-semibold text-neutral-400 tracking-wider uppercase mb-4">SOCIAL MEDIA</p>
               <div className="flex gap-4">
                 <a
                   href="https://github.com/Fizzz14"
@@ -176,18 +176,8 @@ const Contact = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="lg:col-span-7 bg-black p-8 md:p-10 rounded-none relative overflow-hidden border border-outline flex flex-col justify-center min-h-[460px]"
           >
-            {/* Corner Indicators */}
-            <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none">
-              <div className="absolute top-4 left-4 w-2 h-px bg-primary/20" />
-              <div className="absolute top-4 left-4 h-2 w-px bg-primary/20" />
-            </div>
-            <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
-              <div className="absolute top-4 right-4 w-2 h-px bg-primary/20" />
-              <div className="absolute top-4 right-4 h-2 w-px bg-primary/20" />
-            </div>
-
             <h3 className="text-lg font-bold tracking-tight text-white mb-6 uppercase">
-              Send Inquiry
+              Kirim Pesan
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-8 font-sans">
@@ -278,22 +268,22 @@ const Contact = () => {
                   ) : (
                     <>
                       <Send size={12} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      SEND INQUIRY
+                      KIRIM PESAN
                     </>
                   )}
                 </button>
 
-                {/* Status Telemetry Output */}
+                {/* Status Message */}
                 <AnimatePresence mode="wait">
                   {status === 'success' && (
                     <motion.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
-                      className="p-3 border border-primary/20 bg-primary/[0.02] flex items-center gap-3 text-primary text-[10px] tracking-wider uppercase font-semibold select-none"
+                      className="p-3 border border-primary/20 bg-primary/[0.02] flex items-center gap-3 text-primary text-[11px] tracking-wider font-semibold select-none"
                     >
                       <CheckCircle2 size={14} className="shrink-0" />
-                      <span>INQUIRY SUCCESS // MESSAGE RECEIVED</span>
+                      <span>Pesan berhasil terkirim! Terima kasih telah menghubungi saya.</span>
                     </motion.div>
                   )}
 
@@ -302,10 +292,10 @@ const Contact = () => {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
-                      className="p-3 border border-red-500/20 bg-red-500/[0.02] flex items-center gap-3 text-red-400 text-[10px] tracking-wider uppercase font-semibold select-none"
+                      className="p-3 border border-red-500/20 bg-red-500/[0.02] flex items-center gap-3 text-red-400 text-[11px] tracking-wider font-semibold select-none"
                     >
                       <AlertCircle size={14} className="shrink-0" />
-                      <span>SYSTEM ERROR // {errorMsg}</span>
+                      <span>{errorMsg || 'Terjadi kesalahan saat mengirim pesan.'}</span>
                     </motion.div>
                   )}
                 </AnimatePresence>

@@ -31,14 +31,10 @@ const certificates = [
 ];
 
 const stats = [
-  { value: '40+', label: 'Projects Built' },
-  { value: '100%', label: 'Code Integrity' },
-  { value: '10+', label: 'Core Technologies' },
-  { value: '17', label: 'Years of Velocity' },
-  { value: '4K+', label: 'Commits Made' },
-  { value: '24/7', label: 'Automated Deployments' },
-  { value: '100%', label: 'Custom Architecture' },
-  { value: '0', label: 'Compromise on Quality' }
+  { value: '5+', label: 'Completed Projects' },
+  { value: '10+', label: 'Technologies Mastered' },
+  { value: '8+', label: 'Verified Certificates' },
+  { value: '100%', label: 'Commitment to Quality' }
 ];
 
 const Certificates = () => {
@@ -49,17 +45,17 @@ const Certificates = () => {
         {/* Left Column: Pinned Header */}
         <div className="lg:col-span-3 lg:sticky lg:top-32 self-start">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ ACHIEVEMENTS ]</span>
+            <span className="tech-label">CREDENTIALS</span>
           </div>
           <h2 className="text-3xl font-black tracking-tight text-white uppercase leading-none font-sans">
-            SYSTEM <span className="text-primary">RECOGNITION</span>
+            CERTIFICATES & <span className="text-primary">AWARDS</span>
           </h2>
           <div className="h-[1px] w-12 bg-primary/30 mt-6 hidden lg:block" />
         </div>
 
         {/* Right Column: Scrollable Content Grid */}
         <div className="lg:col-span-9 space-y-16">
-          {/* 2x4 Metric Capabilities Dashboard Grid */}
+          {/* Metric Dashboard Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 border-l border-t border-outline select-none bg-black">
             {stats.map((stat, idx) => (
               <div 
@@ -69,7 +65,7 @@ const Certificates = () => {
                 <span className="text-3xl md:text-4xl font-black text-primary tracking-tight font-sans">
                   {stat.value}
                 </span>
-                <span className="text-[10px] font-bold tracking-[0.18em] text-white/40 uppercase mt-2.5 font-sans leading-tight">
+                <span className="text-[10px] font-bold tracking-[0.18em] text-white/50 uppercase mt-2.5 font-sans leading-tight">
                   {stat.label}
                 </span>
               </div>
@@ -90,9 +86,7 @@ const Certificates = () => {
                 transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
                 className="block h-full"
               >
-                <TiltCard className="group glass-card rounded-none overflow-hidden relative flex flex-col h-full corner-mark border border-outline hover:border-primary">
-                  <div className="corner-inner" />
-
+                <TiltCard className="group glass-card rounded-none overflow-hidden relative flex flex-col h-full border border-outline hover:border-primary">
                   {/* Image */}
                   <div className="aspect-[4/3] overflow-hidden relative bg-neutral-900">
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10 duration-500" />

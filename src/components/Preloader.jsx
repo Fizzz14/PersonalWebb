@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const messages = [
-  'Manifesting spatial concepts...',
-  'Structuring digital monoliths...',
-  'Curating selected archives...',
-  'Entering the void.'
+  'Loading portfolio...',
+  'Preparing projects...',
+  'Finalizing experience...',
+  'Welcome.'
 ];
 
 const Preloader = ({ onComplete }) => {
@@ -58,7 +58,7 @@ const Preloader = ({ onComplete }) => {
     >
       {/* Top Bar */}
       <div className="flex justify-between items-center font-sans text-[10px] tracking-[0.2em] text-white/40 uppercase">
-        <div>PORTFOLIO ARCHIVE</div>
+        <div>PORTFOLIO</div>
         <div>© {new Date().getFullYear()}</div>
       </div>
 
@@ -104,8 +104,8 @@ const Preloader = ({ onComplete }) => {
         </div>
 
         {/* Progress % Countdown */}
-        <div className="w-full text-center font-sans text-[11px] tracking-[0.25em] text-white/40 mb-3 uppercase">
-          [ {progress.toString().padStart(3, '0')} / 100 ]
+        <div className="w-full text-center font-sans text-[12px] tracking-[0.25em] text-white/50 mb-3 font-semibold">
+          {progress}%
         </div>
 
         {/* Progress Bar (Thin & Sharp) */}
@@ -120,9 +120,9 @@ const Preloader = ({ onComplete }) => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-2 border-t border-outline pt-4 font-sans text-[9px] tracking-[0.15em] text-white/20 uppercase">
-        <div>LOC: BOGOR, INDONESIA</div>
-        <div>ACADEMIC CONTEXT // PPLG</div>
+      <div className="flex flex-col md:flex-row justify-between items-center gap-2 border-t border-outline pt-4 font-sans text-[9px] tracking-[0.15em] text-white/30 uppercase">
+        <div>BOGOR, INDONESIA</div>
+        <div>SMK WIKRAMA BOGOR • PPLG</div>
       </div>
     </motion.div>
   );

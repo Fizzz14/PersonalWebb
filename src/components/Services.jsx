@@ -4,30 +4,30 @@ import { motion } from 'framer-motion';
 const specializations = [
   {
     num: '01',
-    title: 'COMPUTATIONAL ENGINE',
-    subtitle: 'Node.js // Express',
-    desc: 'Crafting high-throughput server architectures, performant RESTful APIs, and robust backend ecosystems with strict security practices.',
+    title: 'BACKEND DEVELOPMENT',
+    subtitle: 'Node.js, Express & Laravel',
+    desc: 'Membangun arsitektur server-side yang scalable, RESTful API terstruktur, keamanan autentikasi JWT, dan integrasi backend yang andal.',
     highlight: false,
   },
   {
     num: '02',
-    title: 'IMMUTABLE INTERFACES',
-    subtitle: 'React // Flutter',
-    desc: 'Building responsive frontends and native mobile applications with meticulous typography, smooth layouts, and pixel-perfect layouts.',
+    title: 'MOBILE & WEB APPS',
+    subtitle: 'Flutter & React',
+    desc: 'Pengembangan aplikasi mobile lintas platform dan aplikasi web modern yang responsif, cepat, serta nyaman digunakan pengguna.',
     highlight: false,
   },
   {
     num: '03',
-    title: 'DATA ARCHITECTURE',
-    subtitle: 'SQL // MongoDB',
-    desc: 'Designing performant database schemas, relational normalization, and NoSQL pipelines structured for longevity and search performance.',
+    title: 'DATABASE ARCHITECTURE',
+    subtitle: 'MySQL & MongoDB',
+    desc: 'Perancangan skema basis data relasional dan NoSQL yang terstruktur, optimasi query, efisiensi indexing, dan pemodelan data bersih.',
     highlight: false,
   },
   {
     num: '04',
-    title: 'SPATIAL LAYOUTS',
-    subtitle: 'UI/UX // Figma',
-    desc: 'Translating design directives into elegant layouts and premium interactive systems curated specifically for editorial visual clarity.',
+    title: 'UI/UX DESIGN',
+    subtitle: 'Figma & Prototyping',
+    desc: 'Merancang desain antarmuka modern yang berfokus pada kemudahan pengguna (user-centric), hierarki visual elegan, dan konsistensi sistem desain.',
     highlight: true,
   },
 ];
@@ -35,23 +35,20 @@ const specializations = [
 const Services = () => {
   return (
     <section id="services" className="py-32 bg-black relative select-none">
-      {/* Background grid lines */}
-      <div className="absolute inset-0 bg-transparent tech-grid opacity-25 pointer-events-none" />
-
       <div className="section-container relative z-10">
         
         {/* Section Header */}
         <div className="mb-20">
           <div className="premium-divider mb-3">
-            <span className="tech-label">[ CORE SPECIALIZATIONS ]</span>
+            <span className="tech-label">SERVICES</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white uppercase">
-            SPECIALIZED <span className="text-primary">DISCIPLINES</span>
+            CORE <span className="text-primary">SERVICES</span>
           </h2>
         </div>
 
-        {/* Skewed Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 skew-y-[-2deg] hover:skew-y-0 transition-transform duration-700">
+        {/* Clean Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {specializations.map((spec, i) => (
             <motion.div
               key={i}
