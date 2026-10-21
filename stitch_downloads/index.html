@@ -1,0 +1,440 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>λRCH | Skewed Architecture Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            background-color: #000000;
+            color: #ede1d0;
+            overflow-x: hidden;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+
+        .isometric-card-container {
+            perspective: 2000px;
+        }
+
+        .skew-grid-item {
+            transform: rotateX(25deg) rotateZ(-15deg) skewX(5deg);
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.4s;
+            box-shadow: 0 0 0 1px #202020;
+        }
+
+        .skew-grid-item:hover {
+            transform: rotateX(15deg) rotateZ(-5deg) skewX(0deg) translateZ(30px);
+            box-shadow: 0 0 0 2px #ffe3ad;
+            background-color: #181818;
+        }
+
+        .skill-rail-track {
+            animation: scroll-left 40s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .cinematic-glow {
+            background: radial-gradient(circle at 50% -20%, rgba(255, 227, 173, 0.15) 0%, transparent 70%);
+        }
+
+        .monolith-border {
+            border: 1px solid #202020;
+        }
+
+        .gold-accent {
+            color: #ffe3ad;
+        }
+
+        .bg-gold {
+            background-color: #ffe3ad;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#363024",
+                    "secondary": "#e5c27b",
+                    "on-primary-container": "#6d5000",
+                    "on-primary": "#402d00",
+                    "surface-container-highest": "#3a3428",
+                    "surface-container-high": "#2f291e",
+                    "primary-fixed": "#ffdf9e",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#e5c27b",
+                    "background": "#181309",
+                    "on-surface-variant": "#d4c5ab",
+                    "on-secondary-fixed": "#261a00",
+                    "outline": "#9c8f78",
+                    "secondary-container": "#5a4306",
+                    "on-primary-fixed-variant": "#5b4300",
+                    "tertiary-fixed": "#a8edff",
+                    "tertiary": "#b4f0ff",
+                    "on-secondary-container": "#d2b16c",
+                    "on-surface": "#ede1d0",
+                    "surface-container-lowest": "#120e05",
+                    "secondary-fixed": "#ffdf9e",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#402d00",
+                    "primary-container": "#ffc000",
+                    "inverse-primary": "#795900",
+                    "on-background": "#ede1d0",
+                    "on-tertiary": "#00363f",
+                    "on-secondary-fixed-variant": "#5a4306",
+                    "tertiary-container": "#00ddfe",
+                    "on-tertiary-container": "#005d6c",
+                    "surface": "#181309",
+                    "surface-container": "#241f14",
+                    "surface-bright": "#3f382d",
+                    "on-tertiary-fixed": "#001f25",
+                    "primary-fixed-dim": "#fbbd00",
+                    "surface-variant": "#3a3428",
+                    "error-container": "#93000a",
+                    "surface-dim": "#181309",
+                    "tertiary-fixed-dim": "#00d9fa",
+                    "outline-variant": "#504632",
+                    "surface-tint": "#fbbd00",
+                    "surface-container-low": "#201b11",
+                    "inverse-surface": "#ede1d0",
+                    "on-tertiary-fixed-variant": "#004e5b",
+                    "on-primary-fixed": "#261a00",
+                    "primary": "#ffe3ad"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "headline-xl": ["Hanken Grotesk"],
+                    "label-caps": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-black text-on-surface">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center h-16 px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">λRCH</div>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#profile">Profile</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#expertise">Expertise</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#journey">Journey</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#works">Works</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#achievements">Achievements</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#connect">Connect</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest transition-all duration-300 hover:bg-primary-fixed-dim">Inquire</button>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center px-margin-desktop overflow-hidden cinematic-glow" id="profile">
+
+<div class="relative z-10 grid grid-cols-12 gap-gutter w-full max-w-container-max mx-auto">
+<div class="col-span-12 md:col-span-8">
+<h1 class="font-headline-xl text-headline-xl mb-6">BRUTALIST<br><span class="text-primary">PRECISION.</span></h1>
+<p class="font-body-lg text-body-lg max-w-2xl text-on-surface-variant mb-12">
+                        Hafizh Rahmat (λRCH) is an architectural designer crafting immutable digital and physical structures. Rooted in the philosophy of digital brutalism, every line is a calculated intent.
+                    </p>
+<div class="flex gap-6">
+<button class="bg-primary text-on-primary px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest">Explore Works</button>
+<button class="border border-outline-variant text-primary px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-surface-container-high transition-all">Download CV</button>
+</div>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 w-1/3 h-2/3 opacity-20 pointer-events-none">
+
+</div>
+</section>
+<!-- Skill Rail (Core System) -->
+<section class="py-12 bg-surface-container-lowest border-y border-outline-variant overflow-hidden relative">
+<div class="skill-rail-track flex whitespace-nowrap gap-12 items-center">
+<!-- Repeated content for infinite scroll -->
+<div class="flex gap-12 items-center">
+<span class="font-headline-md text-headline-md uppercase tracking-tighter text-outline-variant opacity-50">Parametric Design</span>
+<span class="w-2 h-2 bg-primary rotate-45"></span>
+<span class="font-headline-md text-headline-md uppercase tracking-tighter text-primary">Spatial Logic</span>
+<span class="w-2 h-2 bg-primary rotate-45"></span>
+<span class="font-headline-md text-headline-md uppercase tracking-tighter text-outline-variant opacity-50">BIM Mastery</span>
+<span class="w-2 h-2 bg-primary rotate-45"></span>
+<span class="font-headline-md text-headline-md uppercase tracking-tighter text-primary">Industrial Rendering</span>
+<span class="w-2 h-2 bg-primary rotate-45"></span>
+</div>
+<div class="flex gap-12 items-center">
+<span class="font-headline-md text-headline-md uppercase tracking-tighter text-outline-variant opacity-50">Parametric Design</span>
+<span class="w-2 h-2 bg-primary rotate-45"></span>
+<span class="font-headline-md text-headline-md uppercase tracking-tighter text-primary">Spatial Logic</span>
+<span class="w-2 h-2 bg-primary rotate-45"></span>
+<span class="font-headline-md text-headline-md uppercase tracking-tighter text-outline-variant opacity-50">BIM Mastery</span>
+<span class="w-2 h-2 bg-primary rotate-45"></span>
+<span class="font-headline-md text-headline-md uppercase tracking-tighter text-primary">Industrial Rendering</span>
+<span class="w-2 h-2 bg-primary rotate-45"></span>
+</div>
+</div>
+</section>
+<!-- Expertise (Skewed Grid) -->
+<section class="py-24 px-margin-desktop bg-black overflow-hidden" id="expertise">
+<div class="max-w-container-max mx-auto mb-20">
+<h2 class="font-headline-lg text-headline-lg mb-4">CORE <span class="text-primary">ARCHITECTURE</span></h2>
+<div class="w-24 h-1 bg-primary"></div>
+</div>
+<div class="isometric-card-container grid grid-cols-1 md:grid-cols-3 gap-12 max-w-container-max mx-auto">
+<!-- Card 1 -->
+<div class="skew-grid-item bg-surface-container p-8 min-h-[400px] flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6">architecture</span>
+<h3 class="font-headline-md text-headline-md uppercase mb-4">Structural Engineering</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Defining the skeletal framework of modern monoliths through rigorous mathematical simulations and material stress testing.</p>
+</div>
+<div class="flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                        View Logic <span class="material-symbols-outlined">arrow_right_alt</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="skew-grid-item bg-surface-container p-8 min-h-[400px] flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6">model_training</span>
+<h3 class="font-headline-md text-headline-md uppercase mb-4">Generative Systems</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automating spatial complexity using custom algorithms to produce organic yet strictly structural forms.</p>
+</div>
+<div class="flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                        View Logic <span class="material-symbols-outlined">arrow_right_alt</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="skew-grid-item bg-surface-container p-8 min-h-[400px] flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6">token</span>
+<h3 class="font-headline-md text-headline-md uppercase mb-4">Material Integrity</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Selecting high-performance alloys and reinforced composites to ensure permanence in both physical and digital realms.</p>
+</div>
+<div class="flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                        View Logic <span class="material-symbols-outlined">arrow_right_alt</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Journey Section (Asymmetric) -->
+<section class="py-24 px-margin-desktop bg-surface-container-low border-y border-outline-variant" id="journey">
+<div class="max-w-container-max mx-auto grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-5 mb-12 md:mb-0">
+<h2 class="font-headline-lg text-headline-lg mb-8">THE <span class="text-primary">TRAJECTORY.</span></h2>
+<div class="space-y-12">
+<div class="relative pl-8 border-l border-primary">
+<span class="font-label-caps text-label-caps text-primary uppercase absolute -left-2 top-0 bg-surface-container-low px-1">Phase Alpha</span>
+<h4 class="font-headline-md text-headline-md mb-2">Computational Foundation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2018—2020: Focus on parametric scripts and automated drafting systems for rapid prototyping.</p>
+</div>
+<div class="relative pl-8 border-l border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase absolute -left-2 top-0 bg-surface-container-low px-1">Phase Beta</span>
+<h4 class="font-headline-md text-headline-md mb-2">Industrial Integration</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2020—2022: Collaborating with high-tier construction firms to bridge digital models with physical fabrication.</p>
+</div>
+<div class="relative pl-8 border-l border-outline-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase absolute -left-2 top-0 bg-surface-container-low px-1">Phase Gamma</span>
+<h4 class="font-headline-md text-headline-md mb-2">λRCH Identity</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2023—Present: Establishing a solo practice focused on brutalist digital architecture and immersive visualizations.</p>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7">
+<div class="relative w-full aspect-video border border-outline-variant bg-black overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 transition-all duration-700" data-alt="A cinematic, high-contrast black and white architectural photograph of a futuristic brutalist concrete building. The structures feature sharp, aggressive angles and deep shadows, illuminated by a harsh golden sunset light that highlights the textured concrete surfaces. The scene is minimal, cold, and profoundly powerful, emphasizing structural weight and permanence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSP4T9bwrCubbYukBTmy3IWqgeTyta4TUptoXRCmnsANSuH6D68QqSZd_E1yLTYy2nSa8ltNP8vJbl8tgD4DRnOp7xhJtCd7q2QVGZULJiRR5bNEYs-G6BF3RiBypKBEBc3IWAeIaFl7VHC834142xH8K2zyNCjuaaOgZJWx-39hsdijo3l5t5oYqtQ3chQG54HW_oBxbAfRXqxNwQ0Ew8u0DHpQUk7kysCEWWeCu9m-jkPnZpuI4">
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Works (Portfolio Masonry) -->
+<section class="py-24 px-margin-desktop bg-black" id="works">
+<div class="max-w-container-max mx-auto flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg">PROJECT <span class="text-primary">ARCHIVE</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Selected structural demonstrations.</p>
+</div>
+<button class="font-label-caps text-label-caps uppercase border-b border-primary text-primary pb-1">View Full Index</button>
+</div>
+<div class="grid grid-cols-12 gap-gutter max-w-container-max mx-auto">
+<!-- Large Featured -->
+<div class="col-span-12 md:col-span-8 group relative overflow-hidden h-[600px] bg-surface-container-high border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="An expansive digital rendering of a subterranean monolith carved from obsidian and steel. The space is illuminated by thin strips of Lamborghini Gold neon lights recessed into the floor and ceiling. The architecture is asymmetrical and intimidatingly large, with a central void that draws the eye upward toward a distant, dark skylight. Cinematic lighting creates long, sharp shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUZ37QpmtC5ofBnTstrzQwa8Xv14eWF3vQ2Fd0EY7eY5mke_YXIwi8NQcdTLZMfK5dY5HxLDLyYgru-a2Rb69K8ieeSdYrLmeNGX3GuvaoTTfJ263S15HmGh18Zg7Cj1cv_GQVhCIQkL9IS2USRCi4JVAPSF43h7S7bbx0_8876Qd3bJ02PUrrr-Vqf4AZQd4BQjTC43oHa0F30YlZO7loDobwFKXgjzL9szM1E5d07EuOK_QE0Ps">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all flex flex-col justify-end p-10">
+<span class="font-label-caps text-label-caps text-primary uppercase mb-2">Featured Project</span>
+<h3 class="font-headline-lg text-headline-lg uppercase mb-4">The Obsidian Core</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">A research facility designed as a seamless continuation of the earth's crust, utilizing carbon-fiber reinforced concrete.</p>
+</div>
+</div>
+<!-- Secondary Small -->
+<div class="col-span-12 md:col-span-4 space-y-gutter">
+<div class="group relative overflow-hidden h-[288px] bg-surface-container border border-outline-variant">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" data-alt="A detailed close-up of a parametric facade made of brushed titanium panels. The panels are interlocking in a complex, geometric pattern that creates a sense of fluid motion despite being solid metal. The lighting is cold and industrial, catching the metallic sheen and highlighting the precision-cut edges of the structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQIAsSeZ7t42MfptueZRrqrZXzri-iG0-_qru1duXIClE8PhPYi4M6pueSs9NwKadFJXg5ksIiahW_p6OzOMjtzcIwAXyYb-gD3f7d6vEEJHq2WJzCMebygdi4_fbZUX3Jn9vPXXpivFnTiSTL4qxoZI0HFklQPv_U87xzMXlrNNRxMp7Ny-NhsPlXXFkbsjpdZh3POUHkJ0qi-xceSqIwgF9MxCXmMUs7yPvXXThOBlaE8CCgliQ">
+<div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-black to-transparent">
+<h4 class="font-headline-md text-headline-md uppercase">Titan-9 Shell</h4>
+</div>
+</div>
+<div class="group relative overflow-hidden h-[288px] bg-surface-container border border-outline-variant">
+<img class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" data-alt="A high-end luxury interior featuring minimalist furniture in a vast, open space with floor-to-ceiling glass looking out onto a dark, rainy metropolis. The interior uses Absolute Black marble floors and Lamborghini Gold trim along the ceiling. The mood is sophisticated, exclusive, and technologically forward." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAyIBuxZyUsEdBhqOf_zySufn5XDfS6rqoUyrWDVrpNifg43fjY9bi1oIX80FNmS_8Wmy98xln5eonzqcNgr6gcecQCVqob-pOd4nvUn7W57XTD_N7gOseLP4m77xAhvAExb3K8RE5SqRzz7VwZvb9KAcGzOmw0fJycLZ7qSEI50UlPPX00S_Kct1AmGwSD1p9UYhWk26Z98H5guNJ-G2c3Ac8gMNMKBeTK5R_wYHiVMbY3OYs9Sw">
+<div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-black to-transparent">
+<h4 class="font-headline-md text-headline-md uppercase">Vertex Lounge</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievements -->
+<section class="py-24 px-margin-desktop bg-surface-container-lowest" id="achievements">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-16 text-center">SYSTEM <span class="text-primary">RECOGNITION</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="p-8 border border-outline-variant hover:border-primary transition-colors text-center">
+<span class="font-headline-xl text-headline-xl text-primary block mb-2">12</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">Global Awards</span>
+</div>
+<div class="p-8 border border-outline-variant hover:border-primary transition-colors text-center">
+<span class="font-headline-xl text-headline-xl text-primary block mb-2">40+</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">Projects Built</span>
+</div>
+<div class="p-8 border border-outline-variant hover:border-primary transition-colors text-center">
+<span class="font-headline-xl text-headline-xl text-primary block mb-2">08</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">Keynotes Delivered</span>
+</div>
+<div class="p-8 border border-outline-variant hover:border-primary transition-colors text-center">
+<span class="font-headline-xl text-headline-xl text-primary block mb-2">01</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">Manifesto Published</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Connect (Contact) -->
+<section class="py-24 px-margin-desktop bg-black border-t border-outline-variant" id="connect">
+<div class="max-w-container-max mx-auto grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-6">
+<h2 class="font-headline-lg text-headline-lg mb-6">INITIATE <span class="text-primary">COMMUNICATION.</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-md">Open for high-level architectural consultations, digital twins, and brutalist spatial design inquiries.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="font-body-lg text-body-lg">protocols@arch.system</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="font-body-lg text-body-lg">Distributed Node: SE Asia / Global</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6">
+<form class="space-y-8">
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant py-4 focus:border-primary focus:ring-0 text-body-lg outline-none transition-all placeholder:text-outline-variant" placeholder="Identity" type="text">
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant py-4 focus:border-primary focus:ring-0 text-body-lg outline-none transition-all placeholder:text-outline-variant" placeholder="Communication Channel" type="email">
+</div>
+<div class="relative">
+<textarea class="w-full bg-transparent border-b border-outline-variant py-4 focus:border-primary focus:ring-0 text-body-lg outline-none transition-all placeholder:text-outline-variant" placeholder="Message Protocol" rows="4"></textarea>
+</div>
+<button class="bg-primary text-on-primary px-12 py-4 font-label-caps text-label-caps uppercase tracking-widest w-full md:w-auto" type="submit">Transmit Data</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-12 gap-gutter px-margin-desktop py-12 w-full max-w-container-max mx-auto">
+<div class="col-span-12 md:col-span-6 mb-8 md:mb-0">
+<div class="font-headline-lg text-headline-lg font-black text-on-surface mb-4">λRCH</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">© 2024 λRCH / HAFIZH RAHMAT. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="col-span-12 md:col-span-6 grid grid-cols-2 gap-8 md:flex md:justify-end md:gap-16">
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary uppercase">Legal</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-primary uppercase">Resources</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Press Kit</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Archive</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Interactive Elements (JS for micro-interactions) -->
+<script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active state logic
+                document.querySelectorAll('nav a').forEach(a => {
+                    a.classList.remove('text-primary', 'border-b-2', 'border-primary', 'pb-1');
+                    a.classList.add('text-on-surface-variant');
+                });
+                this.classList.add('text-primary', 'border-b-2', 'border-primary', 'pb-1');
+                this.classList.remove('text-on-surface-variant');
+            });
+        });
+
+        // Simple mouse tracking for background glow enhancement
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            const hero = document.getElementById('profile');
+            hero.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255, 227, 173, 0.1) 0%, transparent 60%)`;
+        });
+    </script>
+</body></html>
