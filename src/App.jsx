@@ -13,6 +13,7 @@ import Certificates from './components/Certificates';
 import Contact      from './components/Contact';
 import Footer       from './components/Footer';
 import Preloader    from './components/Preloader';
+import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,9 @@ function App() {
     <ReactLenis root options={{ lerp: 0.075, duration: 1.1, smoothTouch: false }}>
       {/* ── LAYER 1: Base black background ── */}
       <div className="bg-black min-h-screen text-white font-sans relative">
+
+        {/* ── Atmospheric Gold Dust Particles ── */}
+        <ParticleBackground />
 
         {/* ── LAYER 2: Scroll progress bar ── */}
         <motion.div className="scroll-progress" style={{ scaleX }} />

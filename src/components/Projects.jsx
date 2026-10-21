@@ -95,7 +95,7 @@ const Projects = () => {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="w-full"
             >
-              <TiltCard className="group premium-card rounded-none overflow-hidden relative flex flex-col md:flex-row border border-outline hover:border-primary/50 min-h-[420px] bg-black">
+              <TiltCard className="group premium-card rounded-none overflow-hidden relative flex flex-col md:flex-row border border-outline min-h-[420px]">
                 {/* Index badge */}
                 <div className="absolute top-4 left-4 z-20 pointer-events-none bg-black/80 border border-outline px-3 py-1 text-[9px] font-sans font-semibold tracking-wider text-primary uppercase">
                   Featured Project
@@ -167,7 +167,7 @@ const Projects = () => {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.12 }}
                 className="h-full"
               >
-                <TiltCard className="group premium-card rounded-none overflow-hidden relative h-full flex flex-col border border-outline hover:border-primary/50 bg-black">
+                <TiltCard className="group premium-card rounded-none overflow-hidden relative h-full flex flex-col border border-outline">
                   {/* Clean Image container without grids/scanlines */}
                   <div className="aspect-[16/9] overflow-hidden relative bg-neutral-950 p-3 flex items-center justify-center">
                     <img

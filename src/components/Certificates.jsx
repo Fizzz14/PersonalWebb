@@ -18,22 +18,24 @@ import certImg5 from '../assets/certif5.png';
 import certImg6 from '../assets/certif6.png';
 import certImg7 from '../assets/certif7.png';
 import certImg8 from '../assets/certif8.png';
+import certImg9 from '../assets/certif9.png';
 
 const certificates = [
-  { title: 'Guide to Learn SQL with AI at DQLab', issuer: 'DQLab',                                 date: '02 Juni 2026',      pdf: pdfSQLAI,        image: certImg8 },
-  { title: 'Belajar Dasar AI',                     issuer: 'Dicoding',                              date: '30 Sep 2025',       pdf: pdfAI,           image: certImg1 },
-  { title: 'Creating Your Own Digital World',      issuer: 'CV Sentra Bisnis Wikrama',              date: '27 Apr 2024',       pdf: certImg2,        image: certImg2 },
-  { title: 'Express Course',                       issuer: 'Code.org',                              date: '2021',              pdf: certImg3,        image: certImg3 },
-  { title: 'Belajar Dasar Pemrograman Web',        issuer: 'Dicoding',                              date: '04 Nov 2024',       pdf: pdfWeb,          image: certImg4 },
-  { title: 'Career Guidance — Game Developer',     issuer: 'Kemenkominfo',                          date: '18 Des 2024',       pdf: pdfIGDX,         image: certImg5 },
-  { title: 'Belajar Dasar Pemrograman JavaScript', issuer: 'Dicoding',                              date: '05 Jan 2025',       pdf: pdfJS,           image: certImg6 },
-  { title: 'Data Analysis Fundamental',            issuer: 'MySkill',                               date: '04 Agu 2025',       pdf: pdfDataAnalysis, image: certImg7 },
+  { title: 'Guide to Learn SQL with AI at DQLab',            issuer: 'DQLab',                    date: '02 Juni 2026', pdf: pdfSQLAI,        image: certImg8 },
+  { title: 'National MonsoonSIM Youth Business Championship', issuer: 'FEB Universitas Pakuan',  date: '03 Jan 2026',  pdf: certImg9,        image: certImg9 },
+  { title: 'Belajar Dasar AI',                               issuer: 'Dicoding',                 date: '30 Sep 2025',  pdf: pdfAI,           image: certImg1 },
+  { title: 'Data Analysis Fundamental',                       issuer: 'MySkill',                  date: '04 Agu 2025',  pdf: pdfDataAnalysis, image: certImg7 },
+  { title: 'Belajar Dasar Pemrograman JavaScript',            issuer: 'Dicoding',                 date: '05 Jan 2025',  pdf: pdfJS,           image: certImg6 },
+  { title: 'Career Guidance — Game Developer',                issuer: 'Kemenkominfo',             date: '18 Des 2024',  pdf: pdfIGDX,         image: certImg5 },
+  { title: 'Belajar Dasar Pemrograman Web',                   issuer: 'Dicoding',                 date: '04 Nov 2024',  pdf: pdfWeb,          image: certImg4 },
+  { title: 'Creating Your Own Digital World',                 issuer: 'CV Sentra Bisnis Wikrama', date: '27 Apr 2024',  pdf: certImg2,        image: certImg2 },
+  { title: 'Express Course',                                  issuer: 'Code.org',                 date: '2021',         pdf: certImg3,        image: certImg3 },
 ];
 
 const stats = [
   { value: '5+', label: 'Completed Projects' },
   { value: '10+', label: 'Technologies Mastered' },
-  { value: '8+', label: 'Verified Certificates' },
+  { value: '9+', label: 'Verified Certificates' },
   { value: '100%', label: 'Commitment to Quality' }
 ];
 

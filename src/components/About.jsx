@@ -84,13 +84,13 @@ const About = () => {
                 {cards.map(({ Icon, label, value }) => (
                   <div
                     key={label}
-                    className="flex items-center gap-3.5 p-4 border border-outline bg-white/[0.01] hover:bg-white/[0.03] hover:border-primary/30 transition-all duration-300 group cursor-default"
+                    className="flex items-center gap-3.5 p-4 border border-outline bg-[#080808] hover:bg-white/[0.03] hover:border-primary/50 hover:shadow-[0_0_25px_rgba(255,192,0,0.12)] transition-all duration-300 group cursor-default"
                   >
-                    <div className="p-2 bg-white/[0.03] text-primary/60 group-hover:text-primary group-hover:bg-white/[0.07] transition-all duration-300">
+                    <div className="p-2 bg-white/[0.02] text-primary/70 group-hover:text-primary group-hover:bg-primary/10 group-hover:shadow-[0_0_15px_rgba(255,192,0,0.3)] transition-all duration-300">
                       <Icon size={16} />
                     </div>
                     <div>
-                      <p className="text-[9px] font-sans font-semibold text-primary/40 tracking-[0.2em] uppercase">{label}</p>
+                      <p className="text-[9px] font-sans font-semibold text-primary/50 tracking-[0.2em] uppercase">{label}</p>
                       <p className="text-sm font-medium text-on-surface-variant group-hover:text-white transition-colors mt-0.5">{value}</p>
                     </div>
                   </div>

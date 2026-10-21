@@ -108,12 +108,12 @@ const Skills = () => {
           >
             {hardSkills.map((skill, i) => (
               <motion.div key={i} variants={fadeUp} className="h-full">
-                <TiltCard className="h-full bg-black rounded-none p-6 group cursor-default flex flex-col justify-between border border-outline hover:border-primary/50 transition-all duration-300">
+                <TiltCard className="h-full premium-card rounded-none p-6 group cursor-default flex flex-col justify-between border border-outline transition-all duration-300">
                   <div>
                     {/* Header Card */}
                     <div className="flex items-start justify-between gap-4 mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2.5 rounded-none bg-white/[0.02] text-primary group-hover:text-black group-hover:bg-primary transition-all duration-300">
+                        <div className="p-2.5 rounded-none bg-white/[0.02] text-primary group-hover:text-black group-hover:bg-primary transition-all duration-300 group-hover:shadow-[0_0_20px_#FFC000]">
                           {skill.icon}
                         </div>
                         <div>
@@ -157,7 +157,7 @@ const Skills = () => {
             viewport={{ once: true }}
             className="lg:col-span-4 h-full"
           >
-            <TiltCard className="glass-card rounded-none p-7 bg-black h-full flex flex-col justify-center border border-outline hover:border-primary/50">
+            <TiltCard className="glass-card rounded-none p-7 h-full flex flex-col justify-center border border-outline">
               <div className="mb-7 flex items-center justify-between border-b border-outline pb-4">
                 <h4 className="text-base font-bold tracking-tight text-white uppercase font-sans">Core Strengths</h4>
                 <span className="text-[10px] font-sans font-semibold text-primary/60 tracking-wider uppercase">HIGHLIGHTS</span>
